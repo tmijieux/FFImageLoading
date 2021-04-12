@@ -84,30 +84,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="MvvmCross.Platform">
-      <HintPath>..\..\..\packages\MvvmCross.Platform.5.6.3\lib\Xamarin.iOS10\MvvmCross.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Platform.iOS">
-      <HintPath>..\..\..\packages\MvvmCross.Platform.5.6.3\lib\Xamarin.iOS10\MvvmCross.Platform.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Core">
-      <HintPath>..\..\..\packages\MvvmCross.Core.5.6.3\lib\Xamarin.iOS10\MvvmCross.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.iOS">
-      <HintPath>..\..\..\packages\MvvmCross.Core.5.6.3\lib\Xamarin.iOS10\MvvmCross.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Binding">
-      <HintPath>..\..\..\packages\MvvmCross.Binding.5.6.3\lib\Xamarin.iOS10\MvvmCross.Binding.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Binding.iOS">
-      <HintPath>..\..\..\packages\MvvmCross.Binding.5.6.3\lib\Xamarin.iOS10\MvvmCross.Binding.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Localization">
-      <HintPath>..\..\..\packages\MvvmCross.Binding.5.6.3\lib\Xamarin.iOS10\MvvmCross.Localization.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.FluentLayouts.Touch">
-      <HintPath>..\..\..\packages\Cirrious.FluentLayout.2.9.0\lib\Xamarin.iOS10\Cirrious.FluentLayouts.Touch.dll</HintPath>
-    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Cirrious.FluentLayout" Version="2.9.0" />
+    <PackageReference Include="MvvmCross" Version="7.1.2" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -125,7 +105,6 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -148,10 +127,6 @@
       <Project>{51CA3BE2-DF00-4F49-8054-E5C776992B61}</Project>
       <Name>FFImageLoading</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FFImageLoading.MvvmCross.Sample.Core\FFImageLoading.MvvmCross.Sample.Core.csproj">
-      <Project>{087DE224-30F0-4FEF-A960-F93F04182BA6}</Project>
-      <Name>FFImageLoading.MvvmCross.Sample.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\source\FFImageLoading.Svg.Touch\FFImageLoading.Svg.Touch.csproj">
       <Project>{AA5B8D71-77C6-4341-BFBA-EBB7B8FAF5AC}</Project>
       <Name>FFImageLoading.Svg.Touch</Name>
@@ -169,6 +144,10 @@
       <Name>FFImageLoading.Transformations.Touch</Name>
       <IsAppExtension>false</IsAppExtension>
       <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\FFImageLoading.MvvmCross.Sample.Core\FFImageLoading.MvvmCross.Sample.Core.csproj">
+      <Project>{087de224-30f0-4fef-a960-f93f04182ba6}</Project>
+      <Name>FFImageLoading.MvvmCross.Sample.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

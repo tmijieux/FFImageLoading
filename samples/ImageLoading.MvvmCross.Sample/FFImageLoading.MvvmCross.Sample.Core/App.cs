@@ -1,4 +1,7 @@
-﻿namespace FFImageLoading.MvvmCross.Sample.Core
+﻿using MvvmCross.IoC;
+using MvvmCross.ViewModels;
+
+namespace FFImageLoading.MvvmCross.Sample.Core
 {
 	/// <summary>
 	/// Define the App type.

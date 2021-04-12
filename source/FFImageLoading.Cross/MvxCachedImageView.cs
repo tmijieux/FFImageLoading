@@ -20,12 +20,10 @@ using Android.Content;
 
 namespace FFImageLoading.Cross
 {
-
+    [Preserve(AllMembers = true)]
 #if __IOS__
-	[Preserve(AllMembers = true)]
-	[Register("MvxCachedImageView")]
+    [Register("MvxCachedImageView")]
 #elif __ANDROID__
-	[Preserve(AllMembers = true)]
 	[Register("ffimageloading.cross.MvxCachedImageView")]
 #endif
 	/// <summary>

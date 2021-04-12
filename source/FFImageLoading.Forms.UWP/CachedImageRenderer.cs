@@ -8,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Storage.Streams;
 using System.IO;
 using Xamarin.Forms;
+using FFImageLoading.Helpers;
 
 #if WINDOWS_UWP
 using Xamarin.Forms.Platform.UWP;

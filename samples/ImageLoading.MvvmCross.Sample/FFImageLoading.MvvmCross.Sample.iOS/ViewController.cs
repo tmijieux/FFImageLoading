@@ -1,8 +1,8 @@
 ﻿using System;
 using FFImageLoading.MvvmCross.Sample.Core;
 using MvvmCross.Binding.BindingContext;
-using MvvmCross.Binding.iOS.Views;
-using MvvmCross.iOS.Views;
+using MvvmCross.Platforms.Ios.Binding.Views;
+using MvvmCross.Platforms.Ios.Views;
 
 namespace FFImageLoading.MvvmCross.Sample.iOS
 {

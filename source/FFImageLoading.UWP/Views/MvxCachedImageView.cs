@@ -5,13 +5,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using FFImageLoading.Args;
 using FFImageLoading.Cache;
+using FFImageLoading.Views;
 using FFImageLoading.Work;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace FFImageLoading.Views
+namespace FFImageLoading.Cross
 {
-	public class MvxCachedImageView : ContentControl, ICachedImageView, IDisposable
+    public class MvxCachedImageView : ContentControl, ICachedImageView, IDisposable
 	{
 		private Image _internalImage;
 		protected IScheduledWork _scheduledWork;

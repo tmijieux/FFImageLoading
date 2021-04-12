@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using Cirrious.FluentLayouts.Touch;
 using FFImageLoading.Cross;
 using FFImageLoading.MvvmCross.Sample.Core;
 using MvvmCross.Binding.BindingContext;
-using MvvmCross.Binding.iOS.Views;
+using MvvmCross.Platforms.Ios.Binding.Views;
 using UIKit;
 
 namespace FFImageLoading.MvvmCross.Sample.iOS

@@ -1,12 +1,13 @@
-﻿namespace FFImageLoading.MvvmCross.Sample.Core
-{
-	using System;
-	using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
+using MvvmCross.ViewModels;
 
-	/// <summary>
-	///    Defines the BaseViewModel type.
-	/// </summary>
-	public abstract class BaseViewModel : MvxViewModel
+namespace FFImageLoading.MvvmCross.Sample.Core
+{
+    /// <summary>
+    ///    Defines the BaseViewModel type.
+    /// </summary>
+    public abstract class BaseViewModel : MvxViewModel
 	{
 		/// <summary>
 		/// Checks if a property already matches a desired value.  Sets the property and

@@ -1,7 +1,7 @@
 ﻿using FFImageLoading.MvvmCross.Sample.Core;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.iOS.Platform;
-using MvvmCross.iOS.Views.Presenters;
+using MvvmCross.Platforms.Ios.Core;
+using MvvmCross.Platforms.Ios.Presenters;
+using MvvmCross.ViewModels;
 using UIKit;
 
 namespace FFImageLoading.MvvmCross.Sample.iOS

@@ -79,7 +79,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="WebP.Touch" />
+    <PackageReference Include="WebP.Touch" Version="1.0.8" />
     <PackageReference Include="SkiaSharp" Version="1.68.0" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.props" Condition="Exists('..\..\..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -63,31 +62,11 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Xamarin.Forms.5.0.0.2012\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Xamarin.Forms.5.0.0.2012\lib\Xamarin.Mac\Xamarin.Forms.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform.macOS, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Xamarin.Forms.5.0.0.2012\lib\Xamarin.Mac\Xamarin.Forms.Platform.macOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Xamarin.Forms.5.0.0.2012\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Mac" />
-    <Reference Include="WebP.Mac">
-      <HintPath>..\..\..\packages\WebP.Touch.1.0.8\lib\Xamarin.Mac20\WebP.Mac.dll</HintPath>
-    </Reference>
-    <Reference Include="SkiaSharp">
-      <HintPath>..\..\..\packages\SkiaSharp.1.68.0\lib\Xamarin.Mac20\SkiaSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamvvm.Core">
-      <HintPath>..\..\..\packages\Xamvvm.Forms.1.0.5\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+netstandard1.0\Xamvvm.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamvvm.Forms">
-      <HintPath>..\..\..\packages\Xamvvm.Forms.1.0.5\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+netstandard1.0\Xamvvm.Forms.dll</HintPath>
-    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="WebP.Touch" Version="1.0.8" />
+    <PackageReference Include="SkiaSharp" Version="1.68.0" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -133,10 +112,6 @@
       <Project>{EC240D61-70B0-4561-BB43-F8FB8FD11BF2}</Project>
       <Name>FFImageLoading.Forms.Mac</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Shared\FFImageLoading.Forms.Sample.csproj">
-      <Project>{3A682234-5918-4F58-B02B-598A59C6A7BD}</Project>
-      <Name>FFImageLoading.Forms.Sample</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\source\FFImageLoading.Mac\FFImageLoading.Mac.csproj">
       <Project>{91825F9F-8F2D-4848-8375-68FCAA8C0DC6}</Project>
       <Name>FFImageLoading.Mac</Name>
@@ -153,6 +128,10 @@
       <Project>{EAEFDF02-E6BB-4ACD-925A-F8BCCD479DA3}</Project>
       <Name>FFImageLoading.Svg.Mac</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Shared\FFImageLoading.Forms.Sample.csproj">
+      <Project>{3A682234-5918-4F58-B02B-598A59C6A7BD}</Project>
+      <Name>FFImageLoading.Forms.Sample</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\error.png" />
@@ -163,13 +142,4 @@
     <BundleResource Include="Resources\ic_star_black_24dp%403x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
-  <Target Name="_VerifyBuildSignature" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.props'))" />
-    <Error Condition="!Exists('..\..\..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.targets'))" />
-  </Target>
-  <Import Project="..\..\..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.targets" Condition="Exists('..\..\..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.targets')" />
 </Project>

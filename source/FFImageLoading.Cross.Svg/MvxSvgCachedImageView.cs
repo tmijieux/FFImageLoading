@@ -15,11 +15,10 @@ using Android.Content;
 
 namespace FFImageLoading.Cross
 {
-#if __IOS__
     [Preserve(AllMembers = true)]
+#if __IOS__
     [Register("MvxSvgCachedImageView")]
 #elif __ANDROID__
-    [Preserve(AllMembers = true)]
     [Register("ffimageloading.cross.MvxSvgCachedImageView")]
 #endif
     /// <summary>
@@ -35,7 +34,6 @@ namespace FFImageLoading.Cross
         public MvxSvgCachedImageView(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer) { }
         public MvxSvgCachedImageView(Context context) : base(context) { }
         public MvxSvgCachedImageView(Context context, IAttributeSet attrs) : base(context, attrs) { }
-
 #elif __WINDOWS__
         public MvxSvgCachedImageView() : base() { }
 #endif
