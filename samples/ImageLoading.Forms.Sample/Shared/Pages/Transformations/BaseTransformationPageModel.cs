@@ -1,9 +1,8 @@
-﻿using System;
+﻿using System.Windows.Input;
 using Xamvvm;
-using System.Windows.Input;
 namespace FFImageLoading.Forms.Sample
 {
-	
+
 	public class BaseTransformationPageModel : BasePageModel
 	{
 		public BaseTransformationPageModel()

@@ -1,5 +1,4 @@
-﻿using System;
-namespace FFImageLoading.Helpers.Gif
+﻿namespace FFImageLoading.Helpers.Gif
 {
 	public enum GifDecodeStatus
 	{

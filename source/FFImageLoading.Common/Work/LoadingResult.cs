@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FFImageLoading.Work
+﻿namespace FFImageLoading.Work
 {
 	public enum LoadingResult
 	{
@@ -18,7 +16,7 @@ namespace FFImageLoading.Work
 		Disk = 10,
 		ApplicationBundle = 11,
 		CompiledResource = 12,
-        EmbeddedResource = 13,
+		EmbeddedResource = 13,
 
 		Stream = 20,
 	}

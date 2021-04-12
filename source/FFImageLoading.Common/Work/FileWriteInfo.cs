@@ -1,17 +1,15 @@
-﻿using System;
-
-namespace FFImageLoading
+﻿namespace FFImageLoading
 {
-    public readonly struct FileWriteInfo
-    {
-        public FileWriteInfo(string filePath, string sourcePath)
-        {
-            FilePath = filePath;
-            SourcePath = sourcePath;
-        }
+	public readonly struct FileWriteInfo
+	{
+		public FileWriteInfo(string filePath, string sourcePath)
+		{
+			FilePath = filePath;
+			SourcePath = sourcePath;
+		}
 
-        public readonly string SourcePath;
+		public readonly string SourcePath;
 
-        public readonly string FilePath;
-    }
+		public readonly string FilePath;
+	}
 }

@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
-
+﻿
 [assembly: InternalsVisibleTo("FFImageLoading.Tests")]
 [assembly: InternalsVisibleTo("FFImageLoading.Platform")]
 [assembly: InternalsVisibleTo("FFImageLoading.Svg.Platform")]

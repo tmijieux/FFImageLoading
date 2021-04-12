@@ -1,21 +1,19 @@
 ﻿using System;
-using FFImageLoading.Drawables;
-using FFImageLoading.Work;
+using System.Runtime.CompilerServices;
 using Android.Graphics.Drawables;
 using Android.Widget;
-using System.Linq;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using FFImageLoading.Drawables;
+using FFImageLoading.Work;
 
 namespace FFImageLoading.Targets
 {
-    public class ImageViewTarget : ViewTarget<ImageView>
-    {
+	public class ImageViewTarget : ViewTarget<ImageView>
+	{
 		private static readonly ConditionalWeakTable<ImageView, HighResolutionTimer<ISelfDisposingAnimatedBitmapDrawable>> _runningAnimations = new ConditionalWeakTable<ImageView, HighResolutionTimer<ISelfDisposingAnimatedBitmapDrawable>>();
 
-        public ImageViewTarget(ImageView control) : base(control)
-        {
-        }
+		public ImageViewTarget(ImageView control) : base(control)
+		{
+		}
 
 		private static void PlayAnimation(ImageView control, ISelfDisposingAnimatedBitmapDrawable drawable)
 		{
@@ -108,35 +106,35 @@ namespace FFImageLoading.Targets
 			}
 		}
 
-        public override void SetAsEmpty(IImageLoaderTask task)
-        {
-            if (task == null || task.IsCancelled)
-                return;
+		public override void SetAsEmpty(IImageLoaderTask task)
+		{
+			if (task == null || task.IsCancelled)
+				return;
 
-            var control = Control;
-            if (control == null)
-                return;
+			var control = Control;
+			if (control == null)
+				return;
 
 			Set(control, null);
 		}
 
-        public override void Set(IImageLoaderTask task, SelfDisposingBitmapDrawable image, bool animated)
-        {
-            if (task == null || task.IsCancelled)
-                return;
-            
-            var control = Control;
-            if (control == null || control.Drawable == image)
-                return;
+		public override void Set(IImageLoaderTask task, SelfDisposingBitmapDrawable image, bool animated)
+		{
+			if (task == null || task.IsCancelled)
+				return;
 
-            var isLayoutNeeded = IsLayoutNeeded(task, control.Drawable, image);
+			var control = Control;
+			if (control == null || control.Drawable == image)
+				return;
+
+			var isLayoutNeeded = IsLayoutNeeded(task, control.Drawable, image);
 
 			Set(control, image);
-            control.Invalidate();
+			control.Invalidate();
 
-            if (isLayoutNeeded)
-                control.RequestLayout();
-        }
-    }
+			if (isLayoutNeeded)
+				control.RequestLayout();
+		}
+	}
 }
 

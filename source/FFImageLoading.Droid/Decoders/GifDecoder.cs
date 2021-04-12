@@ -1,12 +1,11 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
 using Android.Graphics;
-using FFImageLoading.Work;
-using FFImageLoading.Helpers;
-using FFImageLoading.Extensions;
 using FFImageLoading.Config;
+using FFImageLoading.Extensions;
+using FFImageLoading.Helpers;
 using FFImageLoading.Helpers.Gif;
+using FFImageLoading.Work;
 
 namespace FFImageLoading.Decoders
 {

@@ -1,9 +1,8 @@
-﻿using System;
-using FFImageLoading.Work;
+﻿using FFImageLoading.Work;
 
 namespace FFImageLoading.Transformations
 {
-    [Preserve(AllMembers = true)]
+	[Preserve(AllMembers = true)]
 	public class TintTransformation : ITransformation
 	{
 		public TintTransformation()
@@ -33,7 +32,7 @@ namespace FFImageLoading.Transformations
 
 		public int A { get; set; }
 
-        public IBitmap Transform(IBitmap sourceBitmap, string path, ImageSource source, bool isPlaceholder, string key)
+		public IBitmap Transform(IBitmap sourceBitmap, string path, ImageSource source, bool isPlaceholder, string key)
 		{
 			return Helpers.ThrowOrDefault<IBitmap>();
 		}

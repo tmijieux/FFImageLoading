@@ -1,14 +1,13 @@
-﻿using System;
-namespace FFImageLoading
+﻿namespace FFImageLoading
 {
-    [Preserve(AllMembers = true)]
-    public interface IPlatformPerformance
-    {
-        int GetCurrentManagedThreadId();
+	[Preserve(AllMembers = true)]
+	public interface IPlatformPerformance
+	{
+		int GetCurrentManagedThreadId();
 
-        int GetCurrentSystemThreadId();
+		int GetCurrentSystemThreadId();
 
-        string GetMemoryInfo();
-    }
+		string GetMemoryInfo();
+	}
 }
 

@@ -5,142 +5,182 @@ using System.Text.RegularExpressions;
 
 namespace FFImageLoading.Svg.Platform
 {
-    internal static class CssHelpers
-    {
-        public static void ParseSelectors(string css, Dictionary<string,string> destination)
-        {
-            if (string.IsNullOrWhiteSpace(css))
-                return;
+	internal static class CssHelpers
+	{
+		public static void ParseSelectors(string css, Dictionary<string, string> destination)
+		{
+			if (string.IsNullOrWhiteSpace(css))
+				return;
 
-            var items =
-                Regex
-                    .Matches(css.Minify(), @"(?<selectors>[A-Za-z0-9_\-\.,\s#]+)\s*{(?<declarations>.+?)}", RegexOptions.IgnoreCase)
-                    .Cast<Match>()
-                    .Select(m => Regex
-                        .Split(m.Groups["selectors"].Value, @",")
-                        .Where(s => !string.IsNullOrEmpty(s))
-                        .Select(selector => new KeyValuePair<string, string>(
-                            key: selector.Trim(),
-                            value: m.Groups["declarations"].Value.Trim())))
-                    .SelectMany(x => x);
+			var items =
+				Regex
+					.Matches(css.Minify(), @"(?<selectors>[A-Za-z0-9_\-\.,\s#]+)\s*{(?<declarations>.+?)}", RegexOptions.IgnoreCase)
+					.Cast<Match>()
+					.Select(m => Regex
+						.Split(m.Groups["selectors"].Value, @",")
+						.Where(s => !string.IsNullOrEmpty(s))
+						.Select(selector => new KeyValuePair<string, string>(
+							key: selector.Trim(),
+							value: m.Groups["declarations"].Value.Trim())))
+					.SelectMany(x => x);
 
-            foreach (var item in items)
-            {
-                destination.AddOrUpdate(item.Key, item.Value);
-            }
+			foreach (var item in items)
+			{
+				destination.AddOrUpdate(item.Key, item.Value);
+/* Unmerged change from project 'FFImageLoading.Svg.Tizen'
+Before:
         }
 		
 		static void AddOrUpdate(this Dictionary<string,string> source, string key, string value)
-		{
+After:
+        }
+
+        static void AddOrUpdate(this Dictionary<string,string> source, string key, string value)
+*/
+
+			}
+		}
+
+		static void AddOrUpdate(this Dictionary<string, string> source, string key, string value)
+        {
+/* Unmerged change from project 'FFImageLoading.Svg.Tizen'
+Before:
 			if(value == null) 
 			{
-				return;
+After:
+			if(value == null)
+            {
+*/
+
+            if (value == null)
+			{
+                return;
+/* Unmerged change from project 'FFImageLoading.Svg.Tizen'
+Before:
 			}
 			
 			if(source.ContainsKey(key))
-			{
-				source[key] += value;
+After:
 			}
-			else
-			{
-				source.Add(key, value);
-			}
-		}
 
-        static string Minify(this string css) => Regex.Replace(css, @"(\r\n|\r|\n)", string.Empty).Trim();
+            if(source.ContainsKey(key))
+*/
 
-		public static Dictionary<string, string> AddFontShorthand(Dictionary<string, string> style, string value)
-		{
+            }
+
+			if (source.ContainsKey(key))
+            {
+                source[key] += value;
+            }
+            else
+            {
+                source.Add(key, value);
+            }
+        }
+
+		static string Minify(this string css) => Regex.Replace(css, @"(\r\n|\r|\n)", string.Empty).Trim();
+
+        public static Dictionary<string, string> AddFontShorthand(Dictionary<string, string> style, string value)
+        {
+/* Unmerged change from project 'FFImageLoading.Svg.Tizen'
+Before:
 			var splitted = value.Split(new char[0], StringSplitOptions.RemoveEmptyEntries); // split by whitespaces
 			string fontStyle = null;
-			string fontVariant = null;
-			string fontWeight = null;
-			string fontSize = null;
-			string lineHeight = null;
-			string fontFamily = null;
+After:
+			var splitted = value.Split(new char[0], StringSplitOptions.RemoveEmptyEntries); // split by whitespaces
+            string fontStyle = null;
+*/
 
-			foreach (var item in splitted)
-			{
-				switch (item)
-				{
-					case "normal":
-					case "inherit":
-					case "initial":
-						if (string.IsNullOrEmpty(fontStyle))
-							fontStyle = item;
-						else if (string.IsNullOrEmpty(fontVariant))
-							fontVariant = item;
-						else if (string.IsNullOrEmpty(fontWeight))
-							fontWeight = item;
-						break;
+            var splitted = value.Split(new char[0], StringSplitOptions.RemoveEmptyEntries); // split by whitespaces
+			string fontStyle = null;
+            string fontVariant = null;
+            string fontWeight = null;
+            string fontSize = null;
+            string lineHeight = null;
+            string fontFamily = null;
 
-					case "italic":
-					case "oblique":
-						fontStyle = item;
-						break;
+            foreach (var item in splitted)
+            {
+                switch (item)
+                {
+                    case "normal":
+                    case "inherit":
+                    case "initial":
+                        if (string.IsNullOrEmpty(fontStyle))
+                            fontStyle = item;
+                        else if (string.IsNullOrEmpty(fontVariant))
+                            fontVariant = item;
+                        else if (string.IsNullOrEmpty(fontWeight))
+                            fontWeight = item;
+                        break;
 
-					case "small-caps":
-						fontVariant = item;
-						break;
+                    case "italic":
+                    case "oblique":
+                        fontStyle = item;
+                        break;
 
-					case "bold":
-					case "bolder":
-					case "lighter":
-					case "100":
-					case "200":
-					case "300":
-					case "400":
-					case "500":
-					case "600":
-					case "700":
-					case "800":
-					case "900":
-					case "1000":
-						fontWeight = item;
-						break;
+                    case "small-caps":
+                        fontVariant = item;
+                        break;
 
-					default:
-						if (fontSize == null)
-						{
-							var parts = item.Split('/');
-							fontSize = parts[0];
-							if (parts.Length > 1)
-								lineHeight = parts[1];
-							break;
-						}
+                    case "bold":
+                    case "bolder":
+                    case "lighter":
+                    case "100":
+                    case "200":
+                    case "300":
+                    case "400":
+                    case "500":
+                    case "600":
+                    case "700":
+                    case "800":
+                    case "900":
+                    case "1000":
+                        fontWeight = item;
+                        break;
 
-						if (string.IsNullOrEmpty(fontFamily))
-						{
-							fontFamily = item;
-						}
-						else
-						{
-							fontFamily = string.Concat(fontFamily, " ", item);
-						}
+                    default:
+                        if (fontSize == null)
+                        {
+                            var parts = item.Split('/');
+                            fontSize = parts[0];
+                            if (parts.Length > 1)
+                                lineHeight = parts[1];
+                            break;
+                        }
 
-						break;
-				}
-			}
+                        if (string.IsNullOrEmpty(fontFamily))
+                        {
+                            fontFamily = item;
+                        }
+                        else
+                        {
+                            fontFamily = string.Concat(fontFamily, " ", item);
+                        }
 
-			if (!string.IsNullOrWhiteSpace(fontStyle))
-				style["font-style"] = fontStyle;
+                        break;
+                }
+            }
 
-			if (!string.IsNullOrWhiteSpace(fontVariant))
-				style["font-variant"] = fontVariant;
+            if (!string.IsNullOrWhiteSpace(fontStyle))
+                style["font-style"] = fontStyle;
 
-			if (!string.IsNullOrWhiteSpace(fontWeight))
-				style["font-weight"] = fontWeight;
+            if (!string.IsNullOrWhiteSpace(fontVariant))
+                style["font-variant"] = fontVariant;
 
-			if (!string.IsNullOrWhiteSpace(fontSize))
-				style["font-size"] = fontSize;
+            if (!string.IsNullOrWhiteSpace(fontWeight))
+                style["font-weight"] = fontWeight;
 
-			if (!string.IsNullOrWhiteSpace(lineHeight))
-				style["line-height"] = lineHeight;
+            if (!string.IsNullOrWhiteSpace(fontSize))
+                style["font-size"] = fontSize;
 
-			if (!string.IsNullOrWhiteSpace(fontFamily))
-				style["font-family"] = fontFamily;
+            if (!string.IsNullOrWhiteSpace(lineHeight))
+                style["line-height"] = lineHeight;
 
-			return style;
-		}
-    }
+            if (!string.IsNullOrWhiteSpace(fontFamily))
+                style["font-family"] = fontFamily;
+
+            return style;
+        }
+	}
 }

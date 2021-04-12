@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using FFImageLoading.Work;
-using FFImageLoading.Helpers;
-using FFImageLoading.Views;
+﻿using FFImageLoading.Views;
 
 
 namespace FFImageLoading.Cache
@@ -92,7 +86,7 @@ namespace FFImageLoading.Cache
                 if (_currentCacheSize > _maxCacheSize)
                 {
                     if (ImageService.Instance.Config.VerboseMemoryCacheLogging)
-                        _logger.Debug($"MemoryCache Size Exceed {_currentCacheSize/1024.0}kb");
+                        _logger.Debug($"MemoryCache Size Exceed {_currentCacheSize / 1024.0}kb");
 
                     if (_lruQueue.Last != null)
                     {

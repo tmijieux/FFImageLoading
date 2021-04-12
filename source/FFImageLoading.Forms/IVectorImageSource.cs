@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FFImageLoading.Work;
 
 namespace FFImageLoading.Forms
 {
-    [Preserve(AllMembers = true)]
+	[Preserve(AllMembers = true)]
 	public interface IVectorImageSource
 	{
 		IVectorDataResolver GetVectorDataResolver();
@@ -17,7 +16,7 @@ namespace FFImageLoading.Forms
 
 		bool UseDipUnits { get; set; }
 
-        Dictionary<string, string> ReplaceStringMap { get; set; }
+		Dictionary<string, string> ReplaceStringMap { get; set; }
 
 		IVectorImageSource Clone();
 	}

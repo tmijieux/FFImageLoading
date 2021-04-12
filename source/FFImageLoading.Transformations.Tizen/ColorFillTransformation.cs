@@ -1,7 +1,4 @@
-﻿using System;
-using FFImageLoading.Work;
-
-namespace FFImageLoading.Transformations
+﻿namespace FFImageLoading.Transformations
 {
     public class ColorFillTransformation : ITransformation
     {

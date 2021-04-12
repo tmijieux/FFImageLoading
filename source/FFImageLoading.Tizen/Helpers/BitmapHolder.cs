@@ -1,7 +1,4 @@
-﻿using System;
-using FFImageLoading.Work;
-using ElmSharp;
-using FFImageLoading.Views;
+﻿using FFImageLoading.Views;
 
 namespace FFImageLoading
 {

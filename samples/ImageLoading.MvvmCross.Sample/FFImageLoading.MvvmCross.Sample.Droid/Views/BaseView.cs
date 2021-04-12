@@ -1,12 +1,11 @@
-﻿using System;
-using MvvmCross.Droid.Views;
+﻿using MvvmCross.Droid.Views;
 
 namespace FFImageLoading.MvvmCross.Sample.Droid
 {
-    public abstract class BaseView : MvxActivity
-    {
-        public BaseView()
-        {
-        }
-    }
+	public abstract class BaseView : MvxActivity
+	{
+		public BaseView()
+		{
+		}
+	}
 }

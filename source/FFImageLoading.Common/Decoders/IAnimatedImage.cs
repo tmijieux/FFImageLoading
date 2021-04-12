@@ -1,11 +1,9 @@
-﻿using System;
-
-namespace FFImageLoading
+﻿namespace FFImageLoading
 {
-    public interface IAnimatedImage<TNativeImageContainer>
-    {
-        int Delay { get; set; }
+	public interface IAnimatedImage<TNativeImageContainer>
+	{
+		int Delay { get; set; }
 
-        TNativeImageContainer Image { get; set; }
-    }
+		TNativeImageContainer Image { get; set; }
+	}
 }

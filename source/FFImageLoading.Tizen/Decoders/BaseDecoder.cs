@@ -1,10 +1,5 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using ElmSharp;
-using FFImageLoading.Extensions;
+﻿using FFImageLoading.Extensions;
 using FFImageLoading.Views;
-using FFImageLoading.Work;
 
 namespace FFImageLoading.Decoders
 {
@@ -14,7 +9,7 @@ namespace FFImageLoading.Decoders
         {
             if (imageData == null)
                 throw new ArgumentNullException(nameof(imageData));
-            
+
             TaskCompletionSource<IDecodedImage<SharedEvasImage>> tcs = new TaskCompletionSource<IDecodedImage<SharedEvasImage>>();
 
             ImageService.Instance.Config.MainThreadDispatcher.PostAsync(() =>
@@ -26,7 +21,8 @@ namespace FFImageLoading.Decoders
                 imageData.TryDispose();
 
                 img.AddRef();
-                EcoreMainloop.AddTimer(1.0, () => {
+                EcoreMainloop.AddTimer(1.0, () =>
+                {
                     img.RemoveRef();
                     return false;
                 });

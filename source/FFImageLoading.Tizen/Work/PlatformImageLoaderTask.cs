@@ -1,15 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using System.Runtime.InteropServices;
-using FFImageLoading.Cache;
-using FFImageLoading.Views;
-using ElmSharp;
+﻿using FFImageLoading.Cache;
 using FFImageLoading.Decoders;
-using System.Collections.Generic;
-using System.Threading;
 using FFImageLoading.Extensions;
-using FFImageLoading.Helpers;
+using FFImageLoading.Views;
 
 namespace FFImageLoading.Work
 {
@@ -26,8 +18,8 @@ namespace FFImageLoading.Work
 
         protected override async Task SetTargetAsync(SharedEvasImage image, bool animated)
         {
-			if (Target == null)
-				return;
+            if (Target == null)
+                return;
 
             await MainThreadDispatcher.PostAsync(() =>
             {
@@ -81,10 +73,10 @@ namespace FFImageLoading.Work
             }
             finally
             {
-				StaticLocks.DecodingLock.Release();
+                StaticLocks.DecodingLock.Release();
             }
 
-            return bitmap;            
+            return bitmap;
         }
 
         protected override Task<SharedEvasImage> GenerateImageFromDecoderContainerAsync(IDecodedImage<SharedEvasImage> decoded, ImageInformation imageInformation, bool isPlaceholder)

@@ -1,7 +1,4 @@
-﻿using System.Reflection;
-using ElmSharp;
-
-namespace FFImageLoading.Views
+﻿namespace FFImageLoading.Views
 {
     public class SharedEvasImage : EvasImage
     {
@@ -41,7 +38,8 @@ namespace FFImageLoading.Views
             }
             else
             {
-                EcoreMainloop.Post(() => {
+                EcoreMainloop.Post(() =>
+                {
                     image.Unrealize();
                 });
             }

@@ -6,13 +6,13 @@ using FFImageLoading.Work;
 
 namespace FFImageLoading.Forms
 {
-    [Preserve(AllMembers = true)]
-    public interface IImageSourceBinding
-    {
-        ImageSource ImageSource { get; }
+	[Preserve(AllMembers = true)]
+	public interface IImageSourceBinding
+	{
+		ImageSource ImageSource { get; }
 
-        string Path { get; }
+		string Path { get; }
 
-        Func<CancellationToken, Task<Stream>> Stream { get; }
-    }
+		Func<CancellationToken, Task<Stream>> Stream { get; }
+	}
 }

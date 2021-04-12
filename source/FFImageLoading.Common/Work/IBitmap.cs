@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FFImageLoading.Work
+﻿namespace FFImageLoading.Work
 {
 	public interface IBitmap
 	{

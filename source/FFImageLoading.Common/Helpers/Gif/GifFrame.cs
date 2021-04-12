@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FFImageLoading.Helpers.Gif
+﻿namespace FFImageLoading.Helpers.Gif
 {
 	public class GifFrame
 	{
@@ -14,7 +12,7 @@ namespace FFImageLoading.Helpers.Gif
 		public int TransparencyIndex { get; set; }
 		public int Delay { get; set; }
 		public int BufferFrameStart { get; set; }
-  		public int[] LCT { get; set; }
+		public int[] LCT { get; set; }
 
 		public enum Disposal
 		{

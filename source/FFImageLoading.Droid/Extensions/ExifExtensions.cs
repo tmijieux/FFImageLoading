@@ -4,12 +4,12 @@ using FFImageLoading.Helpers.Exif;
 
 namespace FFImageLoading.Extensions
 {
-    public static class ExifExtensions
-    {
+	public static class ExifExtensions
+	{
 		public static Bitmap ToRotatedBitmap(this Bitmap sourceBitmap, ExifOrientation orientation)
-        {
-            if (orientation == ExifOrientation.ORIENTATION_UNDEFINED || orientation == ExifOrientation.ORIENTATION_NORMAL)
-                return sourceBitmap;
+		{
+			if (orientation == ExifOrientation.ORIENTATION_UNDEFINED || orientation == ExifOrientation.ORIENTATION_NORMAL)
+				return sourceBitmap;
 
 			var width = sourceBitmap.Width;
 			var height = sourceBitmap.Height;
@@ -58,6 +58,6 @@ namespace FFImageLoading.Extensions
 				}
 			}
 		}
-    }
+	}
 }
 

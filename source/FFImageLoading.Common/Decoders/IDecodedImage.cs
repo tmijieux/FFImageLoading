@@ -1,13 +1,11 @@
-﻿using System;
-
-namespace FFImageLoading
+﻿namespace FFImageLoading
 {
-    public interface IDecodedImage<TNativeImageContainer>
-    {
-        bool IsAnimated { get; }
+	public interface IDecodedImage<TNativeImageContainer>
+	{
+		bool IsAnimated { get; }
 
-        TNativeImageContainer Image { get; set; }
+		TNativeImageContainer Image { get; set; }
 
-        IAnimatedImage<TNativeImageContainer>[] AnimatedImages { get; }
-    }
+		IAnimatedImage<TNativeImageContainer>[] AnimatedImages { get; }
+	}
 }

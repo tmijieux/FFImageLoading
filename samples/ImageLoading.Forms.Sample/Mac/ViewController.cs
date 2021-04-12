@@ -5,30 +5,30 @@ using Foundation;
 
 namespace FFImageLoading.Forms.Sample.Mac
 {
-    public partial class ViewController : NSViewController
-    {
-        public ViewController(IntPtr handle) : base(handle)
-        {
-        }
+	public partial class ViewController : NSViewController
+	{
+		public ViewController(IntPtr handle) : base(handle)
+		{
+		}
 
-        public override void ViewDidLoad()
-        {
-            base.ViewDidLoad();
+		public override void ViewDidLoad()
+		{
+			base.ViewDidLoad();
 
-            // Do any additional setup after loading the view.
-        }
+			// Do any additional setup after loading the view.
+		}
 
-        public override NSObject RepresentedObject
-        {
-            get
-            {
-                return base.RepresentedObject;
-            }
-            set
-            {
-                base.RepresentedObject = value;
-                // Update the view, if already loaded.
-            }
-        }
-    }
+		public override NSObject RepresentedObject
+		{
+			get
+			{
+				return base.RepresentedObject;
+			}
+			set
+			{
+				base.RepresentedObject = value;
+				// Update the view, if already loaded.
+			}
+		}
+	}
 }

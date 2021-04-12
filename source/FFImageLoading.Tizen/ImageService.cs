@@ -1,13 +1,8 @@
-﻿using System;
-using System.IO;
-using System.Runtime.CompilerServices;
-using FFImageLoading.Cache;
-using FFImageLoading.Config;
+﻿using FFImageLoading.Cache;
 using FFImageLoading.DataResolvers;
 using FFImageLoading.Helpers;
 using FFImageLoading.Views;
 using FFImageLoading.Work;
-using ElmSharp;
 using AppFW = Tizen.Applications;
 using TSystemInfo = Tizen.System.Information;
 

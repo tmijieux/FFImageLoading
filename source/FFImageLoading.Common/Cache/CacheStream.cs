@@ -1,21 +1,20 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 namespace FFImageLoading.Cache
 {
-    [Preserve(AllMembers = true)]
+	[Preserve(AllMembers = true)]
 	public class CacheStream
 	{
-        public CacheStream(Stream stream, bool retrievedFromDiskCache, string filePath)
+		public CacheStream(Stream stream, bool retrievedFromDiskCache, string filePath)
 		{
 			ImageStream = stream;
 			RetrievedFromDiskCache = retrievedFromDiskCache;
-            FilePath = filePath;
+			FilePath = filePath;
 		}
 
 		public Stream ImageStream { get; private set; }
 		public bool RetrievedFromDiskCache { get; private set; }
-        public string FilePath { get; private set; }
+		public string FilePath { get; private set; }
 	}
 }
 

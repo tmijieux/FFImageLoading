@@ -1,11 +1,9 @@
-﻿using System;
-
-namespace FFImageLoading.Mock
+﻿namespace FFImageLoading.Mock
 {
-    public class MockImageView
-    {
-        public MockImageView()
-        {
-        }
-    }
+	public class MockImageView
+	{
+		public MockImageView()
+		{
+		}
+	}
 }

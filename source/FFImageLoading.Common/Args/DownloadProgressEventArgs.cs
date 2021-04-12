@@ -2,14 +2,14 @@
 
 namespace FFImageLoading.Args
 {
-    [Preserve(AllMembers = true)]
-    public class DownloadProgressEventArgs : EventArgs
-    {
-        public DownloadProgressEventArgs(DownloadProgress downloadProgress)
-        {
-            DownloadProgress = downloadProgress;
-        }
+	[Preserve(AllMembers = true)]
+	public class DownloadProgressEventArgs : EventArgs
+	{
+		public DownloadProgressEventArgs(DownloadProgress downloadProgress)
+		{
+			DownloadProgress = downloadProgress;
+		}
 
-        public DownloadProgress DownloadProgress { get; private set; }
-    }
+		public DownloadProgress DownloadProgress { get; private set; }
+	}
 }

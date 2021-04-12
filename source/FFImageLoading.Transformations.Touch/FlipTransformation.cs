@@ -1,11 +1,10 @@
 ﻿using System;
-using Foundation;
 using UIKit;
 
 namespace FFImageLoading.Transformations
 {
 	[Preserve(AllMembers = true)]
-	public class FlipTransformation: TransformationBase
+	public class FlipTransformation : TransformationBase
 	{
 		public FlipTransformation() : this(FlipType.Horizontal)
 		{

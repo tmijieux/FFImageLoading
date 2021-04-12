@@ -1,9 +1,7 @@
-﻿using System;
-using FFImageLoading.Work;
-using FFImageLoading.Views;
+﻿using FFImageLoading.Views;
 
 namespace FFImageLoading.Targets
-{            
+{
     class EvasImageTarget : Target<SharedEvasImage, EvasImageContainer>
     {
         readonly WeakReference<EvasImageContainer> _controlWeakReference;

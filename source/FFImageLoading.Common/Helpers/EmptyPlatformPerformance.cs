@@ -1,22 +1,20 @@
-﻿using System;
-
-namespace FFImageLoading.Helpers
+﻿namespace FFImageLoading.Helpers
 {
-    public class EmptyPlatformPerformance : IPlatformPerformance
-    {
-        public int GetCurrentManagedThreadId()
-        {
-            return 0;
-        }
+	public class EmptyPlatformPerformance : IPlatformPerformance
+	{
+		public int GetCurrentManagedThreadId()
+		{
+			return 0;
+		}
 
-        public int GetCurrentSystemThreadId()
-        {
-            return 0;
-        }
+		public int GetCurrentSystemThreadId()
+		{
+			return 0;
+		}
 
-        public string GetMemoryInfo()
-        {
-            return "[PERFORMANCE] Memory - not implemented";
-        }
-    }
+		public string GetMemoryInfo()
+		{
+			return "[PERFORMANCE] Memory - not implemented";
+		}
+	}
 }

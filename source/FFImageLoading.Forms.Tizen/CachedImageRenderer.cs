@@ -1,15 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Tizen;
-using FFImageLoading.Extensions;
-using FFImageLoading.Forms.Args;
-using FFImageLoading.Work;
-using FFImageLoading.Views;
-using Tizen.Applications;
-
-namespace FFImageLoading.Forms.Platform
+﻿namespace FFImageLoading.Forms.Platform
 {
     public class CachedImageRenderer : ViewRenderer<CachedImage, EvasImageContainer>, IVisualElementRenderer
     {
@@ -109,7 +98,8 @@ namespace FFImageLoading.Forms.Platform
 
         void UpdateAspect()
         {
-            switch (Element.Aspect) {
+            switch (Element.Aspect)
+            {
                 case Aspect.AspectFit:
                     Control.Aspect = EvasImageAspect.AspectFit;
                     break;

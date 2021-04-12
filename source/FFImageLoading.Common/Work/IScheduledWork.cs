@@ -1,14 +1,12 @@
-﻿using System;
-
-namespace FFImageLoading.Work
+﻿namespace FFImageLoading.Work
 {
-    public interface IScheduledWork
-    {
-        void Cancel();
+	public interface IScheduledWork
+	{
+		void Cancel();
 
-        bool IsCancelled { get; }
+		bool IsCancelled { get; }
 
-        bool IsCompleted { get; }
-    }
+		bool IsCompleted { get; }
+	}
 }
 

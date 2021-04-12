@@ -1,8 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using ElmSharp;
-
-namespace FFImageLoading.Helpers
+﻿namespace FFImageLoading.Helpers
 {
     public class EcoreThreadDispatcher : IMainThreadDispatcher
     {

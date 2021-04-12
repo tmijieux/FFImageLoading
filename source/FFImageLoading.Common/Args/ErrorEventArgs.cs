@@ -2,14 +2,14 @@
 
 namespace FFImageLoading.Args
 {
-    [Preserve(AllMembers = true)]
-    public class ErrorEventArgs : EventArgs
-    {
-        public ErrorEventArgs(Exception exception)
-        {
-        	Exception = exception;
-        }
+	[Preserve(AllMembers = true)]
+	public class ErrorEventArgs : EventArgs
+	{
+		public ErrorEventArgs(Exception exception)
+		{
+			Exception = exception;
+		}
 
-        public Exception Exception { get; private set; }
-    }
+		public Exception Exception { get; private set; }
+	}
 }

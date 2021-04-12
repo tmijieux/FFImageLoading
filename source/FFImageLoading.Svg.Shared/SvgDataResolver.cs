@@ -1,17 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using FFImageLoading.Work;
 using FFImageLoading.Config;
-using SkiaSharp;
 using FFImageLoading.DataResolvers;
 using FFImageLoading.Extensions;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Text.RegularExpressions;
 using FFImageLoading.Helpers;
+using FFImageLoading.Work;
+using SkiaSharp;
 
 #if __IOS__
 using Foundation;
@@ -42,25 +42,32 @@ namespace FFImageLoading.Svg.Platform
     public class SvgDataResolver : IVectorDataResolver
     {
 #pragma warning disable RECS0108 // Warns about static fields in generic types
-		private static readonly object _encodingLock = new object();
+        private static readonly object _encodingLock = new object();
 #pragma warning restore RECS0108 // Warns about static fields in generic types
 
 #if __IOS__
-		private static readonly CGColorSpace _colorSpace = CGColorSpace.CreateDeviceRGB();
+        private static readonly CGColorSpace _colorSpace = CGColorSpace.CreateDeviceRGB();
 #elif __MACOS__
-		private static readonly CGColorSpace _colorSpace = CGColorSpace.CreateDeviceRGB();
+        private static readonly CGColorSpace _colorSpace = CGColorSpace.CreateDeviceRGB();
+
+/* Unmerged change from project 'FFImageLoading.Svg.Tizen'
+Before:
+        /// <summary>
+After:
+        /// <summary>
+*/
 #endif
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:FFImageLoading.Svg.Platform.SvgDataResolver"/> class.
-		/// Default SVG size is read from SVG file width / height attributes
-		/// You can override it by specyfing vectorWidth / vectorHeight params
-		/// </summary>
-		/// <param name="vectorWidth">Vector width.</param>
-		/// <param name="vectorHeight">Vector height.</param>
-		/// <param name="useDipUnits">If set to <c>true</c> use dip units.</param>
-		/// <param name="replaceStringMap">Replace string map.</param>
-		public SvgDataResolver(int vectorWidth = 0, int vectorHeight = 0, bool useDipUnits = true, Dictionary<string, string> replaceStringMap = null)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:FFImageLoading.Svg.Platform.SvgDataResolver"/> class.
+        /// Default SVG size is read from SVG file width / height attributes
+        /// You can override it by specyfing vectorWidth / vectorHeight params
+        /// </summary>
+        /// <param name="vectorWidth">Vector width.</param>
+        /// <param name="vectorHeight">Vector height.</param>
+        /// <param name="useDipUnits">If set to <c>true</c> use dip units.</param>
+        /// <param name="replaceStringMap">Replace string map.</param>
+        public SvgDataResolver(int vectorWidth = 0, int vectorHeight = 0, bool useDipUnits = true, Dictionary<string, string> replaceStringMap = null)
         {
             VectorWidth = vectorWidth;
             VectorHeight = vectorHeight;
@@ -78,88 +85,88 @@ namespace FFImageLoading.Svg.Platform
 
         public Dictionary<string, string> ReplaceStringMap { get; set; }
 
-		private async Task<DataResolverResult> Decode(SKPicture picture, SKBitmap bitmap, DataResolverResult resolvedData)
-		{
-			await StaticLocks.DecodingLock.WaitAsync().ConfigureAwait(false);
+        private async Task<DataResolverResult> Decode(SKPicture picture, SKBitmap bitmap, DataResolverResult resolvedData)
+        {
+            await StaticLocks.DecodingLock.WaitAsync().ConfigureAwait(false);
 
-			try
-			{
+            try
+            {
 #if __IOS__
-                var info = bitmap.Info;            
-				using (var provider = new CGDataProvider(bitmap.GetPixels(out var size), size.ToInt32()))
-				using (var cgImage = new CGImage(info.Width, info.Height, 8, info.BitsPerPixel, info.RowBytes,
-						_colorSpace, CGBitmapFlags.PremultipliedLast | CGBitmapFlags.ByteOrder32Big,
-						provider, null, false, CGColorRenderingIntent.Default))
-				{
-					IDecodedImage<object> container = new DecodedImage<object>()
-					{
-						Image = new UIImage(cgImage),
-					};
+                var info = bitmap.Info;
+                using (var provider = new CGDataProvider(bitmap.GetPixels(out var size), size.ToInt32()))
+                using (var cgImage = new CGImage(info.Width, info.Height, 8, info.BitsPerPixel, info.RowBytes,
+                        _colorSpace, CGBitmapFlags.PremultipliedLast | CGBitmapFlags.ByteOrder32Big,
+                        provider, null, false, CGColorRenderingIntent.Default))
+                {
+                    IDecodedImage<object> container = new DecodedImage<object>()
+                    {
+                        Image = new UIImage(cgImage),
+                    };
 
-					return new DataResolverResult(container, resolvedData.LoadingResult, resolvedData.ImageInformation);
-				}
+                    return new DataResolverResult(container, resolvedData.LoadingResult, resolvedData.ImageInformation);
+                }
 #elif __MACOS__
                 var info = bitmap.Info;
-				using (var provider = new CGDataProvider(bitmap.GetPixels(out var size), size.ToInt32()))
-				using (var cgImage = new CGImage(info.Width, info.Height, 8, info.BitsPerPixel, info.RowBytes,
-						_colorSpace, CGBitmapFlags.PremultipliedLast | CGBitmapFlags.ByteOrder32Big,
-						provider, null, false, CGColorRenderingIntent.Default))
-				{
-					IDecodedImage<object> container = new DecodedImage<object>()
-					{
-						Image = new NSImage(cgImage, CGSize.Empty),
-					};
-					return new DataResolverResult(container, resolvedData.LoadingResult, resolvedData.ImageInformation);
-				}
+                using (var provider = new CGDataProvider(bitmap.GetPixels(out var size), size.ToInt32()))
+                using (var cgImage = new CGImage(info.Width, info.Height, 8, info.BitsPerPixel, info.RowBytes,
+                        _colorSpace, CGBitmapFlags.PremultipliedLast | CGBitmapFlags.ByteOrder32Big,
+                        provider, null, false, CGColorRenderingIntent.Default))
+                {
+                    IDecodedImage<object> container = new DecodedImage<object>()
+                    {
+                        Image = new NSImage(cgImage, CGSize.Empty),
+                    };
+                    return new DataResolverResult(container, resolvedData.LoadingResult, resolvedData.ImageInformation);
+                }
 #elif __ANDROID__
-				using (var skiaPixmap = bitmap.PeekPixels())
-				{
-					var info = skiaPixmap.Info;
+                using (var skiaPixmap = bitmap.PeekPixels())
+                {
+                    var info = skiaPixmap.Info;
 
-					// destination values
-					var config = Bitmap.Config.Argb8888;
-					var dstInfo = new SKImageInfo(info.Width, info.Height);
+                    // destination values
+                    var config = Bitmap.Config.Argb8888;
+                    var dstInfo = new SKImageInfo(info.Width, info.Height);
 
-					// try keep the pixel format if we can
-					switch (info.ColorType)
-					{
-						case SKColorType.Alpha8:
-							config = Bitmap.Config.Alpha8;
-							dstInfo.ColorType = SKColorType.Alpha8;
-							break;
-						case SKColorType.Rgb565:
-							config = Bitmap.Config.Rgb565;
-							dstInfo.ColorType = SKColorType.Rgb565;
-							dstInfo.AlphaType = SKAlphaType.Opaque;
-							break;
-						case SKColorType.Argb4444:
-							config = Bitmap.Config.Argb4444;
-							dstInfo.ColorType = SKColorType.Argb4444;
-							break;
-					}
+                    // try keep the pixel format if we can
+                    switch (info.ColorType)
+                    {
+                        case SKColorType.Alpha8:
+                            config = Bitmap.Config.Alpha8;
+                            dstInfo.ColorType = SKColorType.Alpha8;
+                            break;
+                        case SKColorType.Rgb565:
+                            config = Bitmap.Config.Rgb565;
+                            dstInfo.ColorType = SKColorType.Rgb565;
+                            dstInfo.AlphaType = SKAlphaType.Opaque;
+                            break;
+                        case SKColorType.Argb4444:
+                            config = Bitmap.Config.Argb4444;
+                            dstInfo.ColorType = SKColorType.Argb4444;
+                            break;
+                    }
 
-					// destination bitmap
-					var bmp = Bitmap.CreateBitmap(info.Width, info.Height, config);
-					var ptr = bmp.LockPixels();
+                    // destination bitmap
+                    var bmp = Bitmap.CreateBitmap(info.Width, info.Height, config);
+                    var ptr = bmp.LockPixels();
 
-					// copy
-					var success = skiaPixmap.ReadPixels(dstInfo, ptr, dstInfo.RowBytes);
+                    // copy
+                    var success = skiaPixmap.ReadPixels(dstInfo, ptr, dstInfo.RowBytes);
 
-					// confirm
-					bmp.UnlockPixels();
-					if (!success)
-					{
-						bmp.Recycle();
-						bmp.Dispose();
-						bmp = null;
-					}
+                    // confirm
+                    bmp.UnlockPixels();
+                    if (!success)
+                    {
+                        bmp.Recycle();
+                        bmp.Dispose();
+                        bmp = null;
+                    }
 
-					IDecodedImage<object> container = new DecodedImage<object>()
-					{
-						Image = bmp,
-					};
-					return new DataResolverResult(container, resolvedData.LoadingResult, resolvedData.ImageInformation);
-				}
+                    IDecodedImage<object> container = new DecodedImage<object>()
+                    {
+                        Image = bmp,
+                    };
+                    return new DataResolverResult(container, resolvedData.LoadingResult, resolvedData.ImageInformation);
+                }
 #elif __WINDOWS__
                 //var pixels = bitmap.Pixels;
                 //for (int i = 0; i < pixels.Length; i++)
@@ -183,27 +190,27 @@ namespace FFImageLoading.Svg.Platform
 
                 return new DataResolverResult(container, resolvedData.LoadingResult, resolvedData.ImageInformation);
 #else
-				lock (_encodingLock)
-				{
-					using (var image = SKImage.FromBitmap(bitmap))
-					//using (var data = image.Encode(SKImageEncodeFormat.Png, 100))  //TODO disabled because of https://github.com/mono/SkiaSharp/issues/285
-					using (var data = image.Encode())
-					{
-						var stream = new MemoryStream();
-						data.SaveTo(stream);
-						stream.Position = 0;
-						return new DataResolverResult(stream, resolvedData.LoadingResult, resolvedData.ImageInformation);
-					}
-				}
+                lock (_encodingLock)
+                {
+                    using (var image = SKImage.FromBitmap(bitmap))
+                    //using (var data = image.Encode(SKImageEncodeFormat.Png, 100))  //TODO disabled because of https://github.com/mono/SkiaSharp/issues/285
+                    using (var data = image.Encode())
+                    {
+                        var stream = new MemoryStream();
+                        data.SaveTo(stream);
+                        stream.Position = 0;
+                        return new DataResolverResult(stream, resolvedData.LoadingResult, resolvedData.ImageInformation);
+                    }
+                }
 #endif
-			}
-			finally
-			{
-				StaticLocks.DecodingLock.Release();
-			}
-		}
+            }
+            finally
+            {
+                StaticLocks.DecodingLock.Release();
+            }
+        }
 
-		public async Task<DataResolverResult> Resolve(string identifier, TaskParameter parameters, CancellationToken token)
+        public async Task<DataResolverResult> Resolve(string identifier, TaskParameter parameters, CancellationToken token)
         {
             var source = parameters.Source;
 
@@ -253,27 +260,27 @@ namespace FFImageLoading.Svg.Platform
                         builder.Replace(map.Key, map.Value);
                     }
 
-					token.ThrowIfCancellationRequested();
+                    token.ThrowIfCancellationRequested();
 
-					using (var svgFinalStream = new MemoryStream(Encoding.UTF8.GetBytes(builder.ToString())))
+                    using (var svgFinalStream = new MemoryStream(Encoding.UTF8.GetBytes(builder.ToString())))
                     {
                         picture = svg.Load(svgFinalStream);
                     }
                 }
             }
 
-			token.ThrowIfCancellationRequested();
+            token.ThrowIfCancellationRequested();
 
             double sizeX = VectorWidth;
             double sizeY = VectorHeight;
 
-			if (UseDipUnits)
-			{
-				sizeX = VectorWidth.DpToPixels();
-				sizeY = VectorHeight.DpToPixels();
-			}
+            if (UseDipUnits)
+            {
+                sizeX = VectorWidth.DpToPixels();
+                sizeY = VectorHeight.DpToPixels();
+            }
 
-			if (sizeX <= 0 && sizeY <= 0)
+            if (sizeX <= 0 && sizeY <= 0)
             {
                 if (picture.CullRect.Width > 0)
                     sizeX = picture.CullRect.Width;
@@ -290,7 +297,7 @@ namespace FFImageLoading.Svg.Platform
                 sizeY = (int)(sizeX / picture.CullRect.Width * picture.CullRect.Height);
             }
             else if (sizeX <= 0 && sizeY > 0)
-			{
+            {
                 sizeX = (int)(sizeY / picture.CullRect.Height * picture.CullRect.Width);
             }
 
@@ -307,10 +314,10 @@ namespace FFImageLoading.Svg.Platform
                 canvas.DrawPicture(picture, ref matrix, paint);
                 canvas.Flush();
 
-				token.ThrowIfCancellationRequested();
+                token.ThrowIfCancellationRequested();
 
-				return await Decode(picture, bitmap, resolvedData).ConfigureAwait(false);
-			}
+                return await Decode(picture, bitmap, resolvedData).ConfigureAwait(false);
+            }
         }
     }
 }

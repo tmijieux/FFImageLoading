@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using FFImageLoading.Work;
 using Android.Widget;
 using FFImageLoading.Forms.Handlers;
+using FFImageLoading.Work;
 using Xamarin.Forms.Platform.Android;
 
 //[assembly: Xamarin.Forms.ExportImageSourceHandler(typeof(Xamarin.Forms.FileImageSource), typeof(FFImageLoading.Forms.Platform.FFImageLoadingImageViewHandler))]
@@ -43,7 +43,7 @@ namespace FFImageLoading.Forms.Platform
 		{
 			if (imageView == null || imageView.Handle == IntPtr.Zero)
 				return false;
-				
+
 #pragma warning disable CS0618 // Type or member is obsolete
 			var activity = imageView.Context as Android.App.Activity ?? (Android.App.Activity)Xamarin.Forms.Forms.Context;
 #pragma warning restore CS0618 // Type or member is obsolete

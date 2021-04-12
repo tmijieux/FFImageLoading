@@ -1,13 +1,11 @@
-﻿using System;
-
-namespace FFImageLoading
+﻿namespace FFImageLoading
 {
-    internal class DecodedImage<TNativeImageContainer> : IDecodedImage<TNativeImageContainer>
-    {
-        public bool IsAnimated { get; set; }
+	internal class DecodedImage<TNativeImageContainer> : IDecodedImage<TNativeImageContainer>
+	{
+		public bool IsAnimated { get; set; }
 
-        public TNativeImageContainer Image { get; set; }
+		public TNativeImageContainer Image { get; set; }
 
-        public IAnimatedImage<TNativeImageContainer>[] AnimatedImages { get; set; }
-    }
+		public IAnimatedImage<TNativeImageContainer>[] AnimatedImages { get; set; }
+	}
 }

@@ -3,11 +3,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Android.Content;
 using Android.Graphics;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 using FFImageLoading.Forms.Handlers;
-using FFImageLoading.Work;
 using FFImageLoading.Targets;
+using FFImageLoading.Work;
+using Xamarin.Forms.Platform.Android;
 
 namespace FFImageLoading.Forms.Platform
 {

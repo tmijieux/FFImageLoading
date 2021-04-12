@@ -1,11 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.1</TargetFramework>
-    <NetStandardImplicitPackageVersion>2.0.2</NetStandardImplicitPackageVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>FFImageLoading.Platform</AssemblyName>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <Version>1.0.0</Version>
     <Authors>Daniel Luberda</Authors>
     <Company>Daniel Luberda</Company>
     <Product>FFImageLoading</Product>
@@ -13,19 +10,14 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
-    <Copyright>Daniel Luberda</Copyright>    
-    <NoWarn>1701;1702;1705;1591;1587;NU1605</NoWarn>    
+    <Copyright>Daniel Luberda</Copyright>
+    <NoWarn>1701;1702;1705;1591;1587;NU1605</NoWarn>
     <RootNamespace>FFImageLoading.Platform</RootNamespace>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-  </ItemGroup>
-
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug</OutputPath>
@@ -40,10 +32,8 @@
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NETCore.Portable.Compatibility" Version="1.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub"
+                      Version="1.0.0" PrivateAssets="All" />
     <ProjectReference Include="..\FFImageLoading.Common\FFImageLoading.csproj" />
   </ItemGroup>
 </Project>

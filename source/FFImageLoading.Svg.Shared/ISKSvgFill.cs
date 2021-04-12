@@ -1,10 +1,9 @@
-﻿using System;
-using SkiaSharp;
+﻿using SkiaSharp;
 
 namespace FFImageLoading.Svg.Platform
 {
-    internal interface ISKSvgFill
-    {
-        void ApplyFill(SKPaint fill, SKRect bounds);
-    }
+	internal interface ISKSvgFill
+	{
+		void ApplyFill(SKPaint fill, SKRect bounds);
+	}
 }

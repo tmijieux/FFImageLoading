@@ -1,12 +1,11 @@
-﻿using System;
-using Xamvvm;
+﻿using Xamvvm;
 
 namespace FFImageLoading.Forms.Sample
 {
-    public class CachedImageSizingTestPageModel : BasePageModel
-    {
-        public CachedImageSizingTestPageModel()
-        {
-        }
-    }
+	public class CachedImageSizingTestPageModel : BasePageModel
+	{
+		public CachedImageSizingTestPageModel()
+		{
+		}
+	}
 }

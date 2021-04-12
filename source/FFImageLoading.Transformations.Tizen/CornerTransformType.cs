@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FFImageLoading.Transformations
+﻿namespace FFImageLoading.Transformations
 {
     [Flags]
     public enum CornerTransformType

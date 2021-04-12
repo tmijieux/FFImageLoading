@@ -1,47 +1,45 @@
 ﻿using System;
-using FFImageLoading.Work;
 using Xamarin.Forms;
-using Xamvvm;
 
 namespace FFImageLoading.Forms.Sample
 {
-    
-    public class CustomKeyPageModel : ListPageModel
-    {
-        public CustomKeyPageModel()
-        {
-        }
-    }
 
-    public class CustomCacheKeyFactory : ICacheKeyFactory
-    {
-        public string GetKey(Xamarin.Forms.ImageSource imageSource, object bindingContext)
-        {
-            if (imageSource == null)
-                return null;
+	public class CustomKeyPageModel : ListPageModel
+	{
+		public CustomKeyPageModel()
+		{
+		}
+	}
 
-            string itemSuffix = string.Empty;
-            var bindingItem = bindingContext as ListPageModel.ListItem;
+	public class CustomCacheKeyFactory : ICacheKeyFactory
+	{
+		public string GetKey(Xamarin.Forms.ImageSource imageSource, object bindingContext)
+		{
+			if (imageSource == null)
+				return null;
 
-            if (bindingItem != null)
-                itemSuffix = bindingItem.FileName;
+			string itemSuffix = string.Empty;
+			var bindingItem = bindingContext as ListPageModel.ListItem;
 
-            // UriImageSource
-            var uriImageSource = imageSource as UriImageSource;
-            if (uriImageSource != null)
-                return string.Format("{0}+myCustomUriSuffix+{1}", uriImageSource.Uri, itemSuffix);
+			if (bindingItem != null)
+				itemSuffix = bindingItem.FileName;
 
-            // FileImageSource
-            var fileImageSource = imageSource as FileImageSource;
-            if (fileImageSource != null)
-                return string.Format("{0}+myCustomFileSuffix+{1}", fileImageSource.File, itemSuffix);
+			// UriImageSource
+			var uriImageSource = imageSource as UriImageSource;
+			if (uriImageSource != null)
+				return string.Format("{0}+myCustomUriSuffix+{1}", uriImageSource.Uri, itemSuffix);
 
-            // StreamImageSource
-            var streamImageSource = imageSource as StreamImageSource;
-            if (streamImageSource != null)
-                return string.Format("{0}+myCustomStreamSuffix+{1}", streamImageSource.Stream.GetHashCode(), itemSuffix);
+			// FileImageSource
+			var fileImageSource = imageSource as FileImageSource;
+			if (fileImageSource != null)
+				return string.Format("{0}+myCustomFileSuffix+{1}", fileImageSource.File, itemSuffix);
 
-            throw new NotImplementedException("ImageSource type not supported");
-        }
-    }
+			// StreamImageSource
+			var streamImageSource = imageSource as StreamImageSource;
+			if (streamImageSource != null)
+				return string.Format("{0}+myCustomStreamSuffix+{1}", streamImageSource.Stream.GetHashCode(), itemSuffix);
+
+			throw new NotImplementedException("ImageSource type not supported");
+		}
+	}
 }

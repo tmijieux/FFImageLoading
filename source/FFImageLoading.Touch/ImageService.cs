@@ -10,122 +10,122 @@ using UIKit;
 
 namespace FFImageLoading
 {
-    /// <summary>
-    /// FFImageLoading by Daniel Luberda
-    /// </summary>
-    [Preserve(AllMembers = true)]
-    public class ImageService : ImageServiceBase<UIImage>
-    {
-        static ConditionalWeakTable<object, IImageLoaderTask> _viewsReferences = new ConditionalWeakTable<object, IImageLoaderTask>();
-        static IImageService _instance;
+	/// <summary>
+	/// FFImageLoading by Daniel Luberda
+	/// </summary>
+	[Preserve(AllMembers = true)]
+	public class ImageService : ImageServiceBase<UIImage>
+	{
+		static ConditionalWeakTable<object, IImageLoaderTask> _viewsReferences = new ConditionalWeakTable<object, IImageLoaderTask>();
+		static IImageService _instance;
 
-        /// <summary>
-        /// FFImageLoading instance.
-        /// </summary>
-        /// <value>The instance.</value>
-        public static IImageService Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new ImageService();
-                
-                return _instance;
-            }
-        }
+		/// <summary>
+		/// FFImageLoading instance.
+		/// </summary>
+		/// <value>The instance.</value>
+		public static IImageService Instance
+		{
+			get
+			{
+				if (_instance == null)
+					_instance = new ImageService();
 
-        /// <summary>
-        /// Set this to use FFImageLoading in a unit test environment. 
-        /// Instead throwing DoNotReference exception - use Mock implementation
-        /// </summary>
-        public static bool EnableMockImageService { get; set; }
+				return _instance;
+			}
+		}
 
-        protected override IMemoryCache<UIImage> MemoryCache => ImageCache.Instance;
-        protected override IMD5Helper CreatePlatformMD5HelperInstance(Configuration configuration) => new MD5Helper();
-        protected override IMiniLogger CreatePlatformLoggerInstance(Configuration configuration) => new MiniLogger();
-        protected override IPlatformPerformance CreatePlatformPerformanceInstance(Configuration configuration) => new PlatformPerformance();
-        protected override IMainThreadDispatcher CreateMainThreadDispatcherInstance(Configuration configuration) => new MainThreadDispatcher();
-        protected override IDataResolverFactory CreateDataResolverFactoryInstance(Configuration configuration) => new DataResolverFactory();
+		/// <summary>
+		/// Set this to use FFImageLoading in a unit test environment. 
+		/// Instead throwing DoNotReference exception - use Mock implementation
+		/// </summary>
+		public static bool EnableMockImageService { get; set; }
 
-        protected override IDiskCache CreatePlatformDiskCacheInstance(Configuration configuration)
-        {
-            if (string.IsNullOrWhiteSpace(configuration.DiskCachePath))
-            {
-                var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                string tmpPath = Path.Combine(documents, "..", "Library", "Caches");
-                string cachePath = Path.Combine(tmpPath, "FFSimpleDiskCache");
-                configuration.DiskCachePath = cachePath;
-            }
+		protected override IMemoryCache<UIImage> MemoryCache => ImageCache.Instance;
+		protected override IMD5Helper CreatePlatformMD5HelperInstance(Configuration configuration) => new MD5Helper();
+		protected override IMiniLogger CreatePlatformLoggerInstance(Configuration configuration) => new MiniLogger();
+		protected override IPlatformPerformance CreatePlatformPerformanceInstance(Configuration configuration) => new PlatformPerformance();
+		protected override IMainThreadDispatcher CreateMainThreadDispatcherInstance(Configuration configuration) => new MainThreadDispatcher();
+		protected override IDataResolverFactory CreateDataResolverFactoryInstance(Configuration configuration) => new DataResolverFactory();
 
-            return new SimpleDiskCache(configuration.DiskCachePath, configuration);
-        }
+		protected override IDiskCache CreatePlatformDiskCacheInstance(Configuration configuration)
+		{
+			if (string.IsNullOrWhiteSpace(configuration.DiskCachePath))
+			{
+				var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+				string tmpPath = Path.Combine(documents, "..", "Library", "Caches");
+				string cachePath = Path.Combine(tmpPath, "FFSimpleDiskCache");
+				configuration.DiskCachePath = cachePath;
+			}
 
-        internal static IImageLoaderTask CreateTask<TImageView>(TaskParameter parameters, ITarget<UIImage, TImageView> target) where TImageView : class
-        {
-            return new PlatformImageLoaderTask<TImageView>(target, parameters, Instance);
-        }
+			return new SimpleDiskCache(configuration.DiskCachePath, configuration);
+		}
 
-        internal static IImageLoaderTask CreateTask(TaskParameter parameters)
-        {
-            return new PlatformImageLoaderTask<object>(null, parameters, Instance);
-        }
+		internal static IImageLoaderTask CreateTask<TImageView>(TaskParameter parameters, ITarget<UIImage, TImageView> target) where TImageView : class
+		{
+			return new PlatformImageLoaderTask<TImageView>(target, parameters, Instance);
+		}
 
-        protected override void SetTaskForTarget(IImageLoaderTask currentTask)
-        {
-            var targetView = currentTask?.Target?.TargetControl;
+		internal static IImageLoaderTask CreateTask(TaskParameter parameters)
+		{
+			return new PlatformImageLoaderTask<object>(null, parameters, Instance);
+		}
 
-            if (!(targetView is UIView))
-                return;
+		protected override void SetTaskForTarget(IImageLoaderTask currentTask)
+		{
+			var targetView = currentTask?.Target?.TargetControl;
 
-            lock (_viewsReferences)
-            {
-                if (_viewsReferences.TryGetValue(targetView, out var existingTask))
-                {
-                    try
-                    {
-                        if (existingTask != null && !existingTask.IsCancelled && !existingTask.IsCompleted)
-                        {
-                            existingTask.Cancel();
-                        }
-                    }
-                    catch (ObjectDisposedException) { }
+			if (!(targetView is UIView))
+				return;
 
-                    _viewsReferences.Remove(targetView);
-                }
+			lock (_viewsReferences)
+			{
+				if (_viewsReferences.TryGetValue(targetView, out var existingTask))
+				{
+					try
+					{
+						if (existingTask != null && !existingTask.IsCancelled && !existingTask.IsCompleted)
+						{
+							existingTask.Cancel();
+						}
+					}
+					catch (ObjectDisposedException) { }
 
-                _viewsReferences.Add(targetView, currentTask);
-            }
-        }
+					_viewsReferences.Remove(targetView);
+				}
 
-        public override void CancelWorkForView(object view)
-        {
-            lock (_viewsReferences)
-            {
-                if (_viewsReferences.TryGetValue(view, out var existingTask))
-                {
-                    try
-                    {
-                        if (existingTask != null && !existingTask.IsCancelled && !existingTask.IsCompleted)
-                        {
-                            existingTask.Cancel();
-                        }
-                    }
-                    catch (ObjectDisposedException) { }
-                }
-            }
-        }
+				_viewsReferences.Add(targetView, currentTask);
+			}
+		}
 
-        public override int DpToPixels(double dp)
-        {
-            return (int)Math.Floor(dp * ScaleHelper.Scale);
-        }
+		public override void CancelWorkForView(object view)
+		{
+			lock (_viewsReferences)
+			{
+				if (_viewsReferences.TryGetValue(view, out var existingTask))
+				{
+					try
+					{
+						if (existingTask != null && !existingTask.IsCancelled && !existingTask.IsCompleted)
+						{
+							existingTask.Cancel();
+						}
+					}
+					catch (ObjectDisposedException) { }
+				}
+			}
+		}
 
-        public override double PixelsToDp(double px)
-        {
-            if (Math.Abs(px) < double.Epsilon)
-                return 0d;
+		public override int DpToPixels(double dp)
+		{
+			return (int)Math.Floor(dp * ScaleHelper.Scale);
+		}
 
-            return px / ScaleHelper.Scale;
-        }
-    }
+		public override double PixelsToDp(double px)
+		{
+			if (Math.Abs(px) < double.Epsilon)
+				return 0d;
+
+			return px / ScaleHelper.Scale;
+		}
+	}
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -7,70 +6,70 @@ using Xamvvm;
 
 namespace FFImageLoading.Forms.Sample
 {
-    
-    public class ListPageModel : BasePageModel
-    {
-        public ListPageModel()
-        {
-            ItemSelectedCommand = new BaseCommand<SelectedItemChangedEventArgs>((arg) =>
-            {
-                SelectedItem = null;
-            });
-        }
 
-        public ListItem SelectedItem { get; set; }
+	public class ListPageModel : BasePageModel
+	{
+		public ListPageModel()
+		{
+			ItemSelectedCommand = new BaseCommand<SelectedItemChangedEventArgs>((arg) =>
+			{
+				SelectedItem = null;
+			});
+		}
 
-        public ICommand ItemSelectedCommand { get; set; }
+		public ListItem SelectedItem { get; set; }
 
-        public ObservableCollection<ListItem> Items { get; set; }
+		public ICommand ItemSelectedCommand { get; set; }
 
-        public void Reload()
-        {
-            var list = new List<ListItem>();
+		public ObservableCollection<ListItem> Items { get; set; }
 
-            var images = new string[20];
+		public void Reload()
+		{
+			var list = new List<ListItem>();
 
-            for (int i = 0; i < images.Length; i++)
-            {
-                images[i] = Helpers.GetImageUrl(i, 320, 240);
-            }
+			var images = new string[20];
 
-            for (int j = 0; j < 5; j++)
-            {
-                for (int i = 0; i < images.Length; i++)
-                {
-                    var item1 = new ListItem()
-                    {
-                        ImageUrl = images[i],
-                        FileName = string.Format("image{0}.jpeg", i + 1),
-                    };
-                    list.Add(item1);
+			for (int i = 0; i < images.Length; i++)
+			{
+				images[i] = Helpers.GetImageUrl(i, 320, 240);
+			}
 
-                    var item2 = new ListItem()
-                    {
-                        ImageUrl = images[i],
-                        FileName = string.Format("image{0}.jpeg", i + 1),
-                    };
-                    list.Add(item2);
+			for (int j = 0; j < 5; j++)
+			{
+				for (int i = 0; i < images.Length; i++)
+				{
+					var item1 = new ListItem()
+					{
+						ImageUrl = images[i],
+						FileName = string.Format("image{0}.jpeg", i + 1),
+					};
+					list.Add(item1);
 
-                    var item3 = new ListItem()
-                    {
-                        ImageUrl = images[i],
-                        FileName = string.Format("image{0}.jpeg", i + 1),
-                    };
-                    list.Add(item3);
-                }
-            }
+					var item2 = new ListItem()
+					{
+						ImageUrl = images[i],
+						FileName = string.Format("image{0}.jpeg", i + 1),
+					};
+					list.Add(item2);
 
-            Items = new ObservableCollection<ListItem>(list);
-        }
+					var item3 = new ListItem()
+					{
+						ImageUrl = images[i],
+						FileName = string.Format("image{0}.jpeg", i + 1),
+					};
+					list.Add(item3);
+				}
+			}
 
-        
-        public class ListItem : BaseModel
-        {
-            public string ImageUrl { get; set; }
+			Items = new ObservableCollection<ListItem>(list);
+		}
 
-            public string FileName { get; set; }
-        }
-    }
+
+		public class ListItem : BaseModel
+		{
+			public string ImageUrl { get; set; }
+
+			public string FileName { get; set; }
+		}
+	}
 }

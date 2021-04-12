@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace FFImageLoading.Forms.Sample
+﻿namespace FFImageLoading.Forms.Sample
 {
-	
+
 	public class CornersTransformationPageModel : BaseTransformationPageModel
 	{
 		public CornersTransformationPageModel()

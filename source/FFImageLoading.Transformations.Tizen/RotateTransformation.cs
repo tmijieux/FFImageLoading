@@ -1,6 +1,4 @@
-﻿using FFImageLoading.Work;
-
-namespace FFImageLoading.Transformations
+﻿namespace FFImageLoading.Transformations
 {
     [Preserve(AllMembers = true)]
     public class RotateTransformation : ITransformation

@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace FFImageLoading.Work
 {
-    public interface IVectorDataResolver : IDataResolver
-    {
-        int VectorWidth { get; }
+	public interface IVectorDataResolver : IDataResolver
+	{
+		int VectorWidth { get; }
 
-        int VectorHeight { get; }
+		int VectorHeight { get; }
 
-        bool UseDipUnits { get; }
+		bool UseDipUnits { get; }
 
-        Dictionary<string, string> ReplaceStringMap { get; set; }
-    }
+		Dictionary<string, string> ReplaceStringMap { get; set; }
+	}
 }

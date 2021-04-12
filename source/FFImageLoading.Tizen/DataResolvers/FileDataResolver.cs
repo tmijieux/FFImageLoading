@@ -1,9 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using FFImageLoading.Work;
-using FFImageLoading.IO;
+﻿using FFImageLoading.IO;
 using AppFW = Tizen.Applications;
 
 namespace FFImageLoading.DataResolvers

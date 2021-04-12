@@ -1,11 +1,6 @@
-﻿using System;
-using Xunit;
-using System.Threading.Tasks;
-using FFImageLoading;
-
-namespace FFImageLoading.Tests
+﻿namespace FFImageLoading.Tests
 {
-    public class DownloadCache : BaseTests
-    {
-    }
+	public class DownloadCache : BaseTests
+	{
+	}
 }

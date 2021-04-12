@@ -1,5 +1,4 @@
-﻿using System;
-namespace FFImageLoading
+﻿namespace FFImageLoading
 {
 	public static class ArrayExtensions
 	{

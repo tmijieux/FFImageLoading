@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using FFImageLoading.Work;
-using FFImageLoading.Cache;
-using System.ComponentModel;
-using System.Threading;
-using System.Threading.Tasks;
-using System.IO;
-using FFImageLoading.Views;
 using FFImageLoading.Svg.Platform;
+using FFImageLoading.Work;
 
 #if __IOS__
 using Foundation;
@@ -21,20 +15,20 @@ using Android.Content;
 
 namespace FFImageLoading.Cross
 {
-    #if __IOS__
-            [Preserve(AllMembers = true)]
-            [Register("MvxSvgCachedImageView")]
-    #elif __ANDROID__
-            [Preserve(AllMembers = true)]
-            [Register("ffimageloading.cross.MvxSvgCachedImageView")]
-    #endif
+#if __IOS__
+    [Preserve(AllMembers = true)]
+    [Register("MvxSvgCachedImageView")]
+#elif __ANDROID__
+    [Preserve(AllMembers = true)]
+    [Register("ffimageloading.cross.MvxSvgCachedImageView")]
+#endif
     /// <summary>
     /// MvxSvgCachedImageView by Daniel Luberda
     /// </summary>
     public class MvxSvgCachedImageView : MvxCachedImageView
     {
 #if __IOS__
-        public MvxSvgCachedImageView() : base() { } 
+        public MvxSvgCachedImageView() : base() { }
         public MvxSvgCachedImageView(IntPtr handle) : base(handle) { }
         public MvxSvgCachedImageView(CGRect frame) : base(frame) { }
 #elif __ANDROID__
@@ -74,7 +68,7 @@ namespace FFImageLoading.Cross
             int height = this.Height;
 #elif __WINDOWS__
             int width = (int)this.Width;
-            int height = (int)this.Height;                
+            int height = (int)this.Height;
 #endif
 
             if (width > height)

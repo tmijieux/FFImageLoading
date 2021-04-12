@@ -1,10 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-
-namespace FFImageLoading.Forms.Platform
+﻿namespace FFImageLoading.Forms.Platform
 {
     [Preserve(AllMembers = true)]
     internal class ImageSourceBinding : IImageSourceBinding
@@ -78,8 +72,8 @@ namespace FFImageLoading.Forms.Platform
             }
 
             var vectorSource = source as IVectorImageSource;
-			if (vectorSource != null)
-			{
+            if (vectorSource != null)
+            {
                 if (element != null && vectorSource.VectorHeight == 0 && vectorSource.VectorHeight == 0)
                 {
                     if (element.Height > 0d && !double.IsInfinity(element.Height))

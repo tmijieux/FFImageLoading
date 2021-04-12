@@ -1,6 +1,6 @@
 ﻿namespace FFImageLoading.Decoders
 {
-    public class BaseDecoder : GifDecoder
-    {
-    }
+	public class BaseDecoder : GifDecoder
+	{
+	}
 }

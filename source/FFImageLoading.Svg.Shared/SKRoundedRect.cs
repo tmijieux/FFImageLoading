@@ -1,24 +1,22 @@
-﻿using System;
-using System.Linq;
-using SkiaSharp;
+﻿using SkiaSharp;
 
 namespace FFImageLoading.Svg.Platform
 {
-    internal struct SKRoundedRect
-    {
-        public SKRoundedRect(SKRect rect, float rx, float ry)
-        {
-            Rect = rect;
-            RadiusX = rx;
-            RadiusY = ry;
-        }
+	internal struct SKRoundedRect
+	{
+		public SKRoundedRect(SKRect rect, float rx, float ry)
+		{
+			Rect = rect;
+			RadiusX = rx;
+			RadiusY = ry;
+		}
 
-        public SKRect Rect { get; }
+		public SKRect Rect { get; }
 
-        public float RadiusX { get; }
+		public float RadiusX { get; }
 
-        public float RadiusY { get; }
+		public float RadiusY { get; }
 
-        public bool IsRounded => RadiusX > 0 || RadiusY > 0;
-    }
+		public bool IsRounded => RadiusX > 0 || RadiusY > 0;
+	}
 }

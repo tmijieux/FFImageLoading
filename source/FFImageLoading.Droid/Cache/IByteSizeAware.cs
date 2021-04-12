@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace FFImageLoading
+﻿namespace FFImageLoading
 {
-    public interface IByteSizeAware
-    {
-        int SizeInBytes { get; }
-    }
+	public interface IByteSizeAware
+	{
+		int SizeInBytes { get; }
+	}
 }

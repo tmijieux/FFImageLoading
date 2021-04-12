@@ -1,11 +1,9 @@
-﻿using System;
-
-namespace FFImageLoading.Forms.Platform
+﻿namespace FFImageLoading.Forms.Platform
 {
-    public class CachedImageRenderer
-    {
-        internal class _CachedImageRenderer
-        {
-        }
-    }
+	public class CachedImageRenderer
+	{
+		internal class _CachedImageRenderer
+		{
+		}
+	}
 }

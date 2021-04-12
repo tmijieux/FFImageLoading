@@ -1,10 +1,7 @@
-﻿using System.Linq;
-using FFImageLoading.Work;
-
-namespace FFImageLoading.Transformations
+﻿namespace FFImageLoading.Transformations
 {
     [Preserve(AllMembers = true)]
-    public class ColorSpaceTransformation: ITransformation
+    public class ColorSpaceTransformation : ITransformation
     {
         public ColorSpaceTransformation()
         {

@@ -1,8 +1,4 @@
-﻿using System;
-using FFImageLoading.Work;
-using FFImageLoading.Config;
-
-namespace FFImageLoading.DataResolvers
+﻿namespace FFImageLoading.DataResolvers
 {
     public class DataResolverFactory : IDataResolverFactory
     {

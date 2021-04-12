@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace FFImageLoading.Cache
+﻿namespace FFImageLoading.Cache
 {
-    [Preserve(AllMembers = true)]
+	[Preserve(AllMembers = true)]
 	public enum CacheResult
 	{
 		Found,

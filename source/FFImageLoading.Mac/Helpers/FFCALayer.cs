@@ -1,12 +1,11 @@
-﻿using System;
-using CoreAnimation;
+﻿using CoreAnimation;
 
 namespace FFImageLoading.Helpers
 {
-    public class FFCALayer : CALayer
-    {
-        public FFCALayer()
-        {
-        }
-    }
+	public class FFCALayer : CALayer
+	{
+		public FFCALayer()
+		{
+		}
+	}
 }

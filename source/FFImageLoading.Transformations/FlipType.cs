@@ -1,11 +1,9 @@
-﻿using System;
-
-namespace FFImageLoading.Transformations
+﻿namespace FFImageLoading.Transformations
 {
-	public enum FlipType
-	{
-		Horizontal,
-		Vertical
-	}
+    public enum FlipType
+    {
+        Horizontal,
+        Vertical
+    }
 }
 

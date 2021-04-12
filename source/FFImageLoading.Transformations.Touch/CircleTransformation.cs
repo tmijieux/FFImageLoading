@@ -1,5 +1,4 @@
-﻿using Foundation;
-using UIKit;
+﻿using UIKit;
 
 namespace FFImageLoading.Transformations
 {

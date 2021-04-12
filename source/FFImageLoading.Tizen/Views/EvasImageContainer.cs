@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using ElmSharp;
-using AppFW = Tizen.Applications;
+﻿using AppFW = Tizen.Applications;
 
 namespace FFImageLoading.Views
 {
@@ -101,7 +97,7 @@ namespace FFImageLoading.Views
                     ms.TryDispose();
                     Directory.Delete(file);
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     tcs.SetException(e);
                 }

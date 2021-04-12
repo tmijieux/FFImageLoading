@@ -1,14 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FFImageLoading.Cache;
-using FFImageLoading.Helpers;
 using FFImageLoading.Config;
-using System.Linq;
 using FFImageLoading.DataResolvers;
-using System.Collections.Generic;
 using FFImageLoading.Decoders;
+using FFImageLoading.Helpers;
 
 namespace FFImageLoading.Work
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using FFImageLoading.Work;
 
@@ -54,10 +53,12 @@ namespace FFImageLoading.Forms.Handlers
 
 				parameters
 					.FadeAnimation(false, false)
-					.Error(ex => {
+					.Error(ex =>
+					{
 						tcs.TrySetException(ex);
 					})
-					.Finish(scheduledWork => {
+					.Finish(scheduledWork =>
+					{
 						tcs.TrySetResult(scheduledWork as IImageLoaderTask);
 					});
 

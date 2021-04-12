@@ -1,11 +1,11 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
-using FFImageLoading.Forms.Args;
 using System.Windows.Input;
 using FFImageLoading.Cache;
-using System.Reflection;
+using FFImageLoading.Forms.Args;
+using Xamarin.Forms;
 
 namespace FFImageLoading.Forms
 {
@@ -947,7 +947,7 @@ namespace FFImageLoading.Forms
 					return;
 				}
 
-				var isWidthHeightRequestSet = widthRequest > 0 || heightRequest > 0; 
+				var isWidthHeightRequestSet = widthRequest > 0 || heightRequest > 0;
 
 				if (vect1 != null)
 				{
@@ -1075,7 +1075,7 @@ namespace FFImageLoading.Forms
 		{
 			base.OnSizeAllocated(width, height);
 
-			if(_reloadBecauseOfMissingSize)
+			if (_reloadBecauseOfMissingSize)
 			{
 				_reloadBecauseOfMissingSize = false;
 

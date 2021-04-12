@@ -1,4 +1,14 @@
-﻿using System;
+﻿
+/* Unmerged change from project 'FFImageLoading.Mac'
+Before:
+using System;
+
+#if __MACOS__
+After:
+using System;
+
+#if __MACOS__
+*/
 
 #if __MACOS__
 using AppKit;
@@ -10,30 +20,30 @@ using PImage = UIKit.UIImage;
 
 namespace FFImageLoading.Work
 {
-    public class BitmapHolder: IBitmap
-    {
-        public BitmapHolder(PImage bitmap)
-        {
-            NativeBitmap = bitmap;
-        }
+	public class BitmapHolder : IBitmap
+	{
+		public BitmapHolder(PImage bitmap)
+		{
+			NativeBitmap = bitmap;
+		}
 
-        public int Width => (int)NativeBitmap.Size.Width;
+		public int Width => (int)NativeBitmap.Size.Width;
 
-        public int Height => (int)NativeBitmap.Size.Height;
+		public int Height => (int)NativeBitmap.Size.Height;
 
-        internal PImage NativeBitmap
-        {
-            get;
-            private set;
-        }
-    }
+		internal PImage NativeBitmap
+		{
+			get;
+			private set;
+		}
+	}
 
-    public static class IBitmapExtensions
-    {
-        public static PImage ToNative(this IBitmap bitmap)
-        {
-            return ((BitmapHolder)bitmap).NativeBitmap;
-        }
-    }
+	public static class IBitmapExtensions
+	{
+		public static PImage ToNative(this IBitmap bitmap)
+		{
+			return ((BitmapHolder)bitmap).NativeBitmap;
+		}
+	}
 }
 

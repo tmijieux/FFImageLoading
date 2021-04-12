@@ -1,8 +1,5 @@
-﻿using System.Threading.Tasks;
-using FFImageLoading.Work;
+﻿using FFImageLoading.Targets;
 using FFImageLoading.Views;
-using FFImageLoading.Targets;
-using System;
 
 namespace FFImageLoading.Extensions
 {
@@ -75,11 +72,13 @@ namespace FFImageLoading.Extensions
             var tcs = new TaskCompletionSource<IScheduledWork>();
 
             parameters
-                .Error(ex => {
+                .Error(ex =>
+                {
                     tcs.TrySetException(ex);
                     userErrorCallback?.Invoke(ex);
                 })
-                .Finish(scheduledWork => {
+                .Finish(scheduledWork =>
+                {
                     finishCallback?.Invoke(scheduledWork);
                     tcs.TrySetResult(scheduledWork);
                 });

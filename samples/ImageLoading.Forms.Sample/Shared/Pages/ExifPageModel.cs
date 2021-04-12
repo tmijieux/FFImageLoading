@@ -1,5 +1,4 @@
-﻿using System;
-using Xamvvm;
+﻿using Xamvvm;
 namespace FFImageLoading.Forms.Sample.Pages
 {
 	public class ExifPageModel : BasePageModel

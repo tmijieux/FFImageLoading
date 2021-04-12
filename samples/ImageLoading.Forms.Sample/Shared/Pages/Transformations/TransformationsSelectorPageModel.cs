@@ -1,45 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using FFImageLoading.Work;
+﻿using System.Collections.Generic;
 using FFImageLoading.Transformations;
+using FFImageLoading.Work;
 
 namespace FFImageLoading.Forms.Sample
 {
-    
-    public class TransformationsSelectorPageModel : BaseTransformationPageModel
-    {
-        public TransformationsSelectorPageModel()
-        {
-            Transformations = new List<ITransformation>()
-            {
-                new CustomTransformationSelector(),
-            };
-        }
 
-        public List<ITransformation> Transformations { get; set;  }
+	public class TransformationsSelectorPageModel : BaseTransformationPageModel
+	{
+		public TransformationsSelectorPageModel()
+		{
+			Transformations = new List<ITransformation>()
+			{
+				new CustomTransformationSelector(),
+			};
+		}
 
-        public class CustomTransformationSelector : ITransformation
-        {
-            readonly ITransformation PlaceholderTransformation = new CircleTransformation(5d, "#EEEEEE");
-            readonly ITransformation ImageTransformation = new GrayscaleTransformation();
+		public List<ITransformation> Transformations { get; set; }
 
-            public string Key
-            {
-                get
-                {
-                    return "CustomTransformationSelector";
-                }
-            }
+		public class CustomTransformationSelector : ITransformation
+		{
+			readonly ITransformation PlaceholderTransformation = new CircleTransformation(5d, "#EEEEEE");
+			readonly ITransformation ImageTransformation = new GrayscaleTransformation();
 
-            public IBitmap Transform(IBitmap sourceBitmap, string path, ImageSource source, bool isPlaceholder, string key)
-            {
-                if (isPlaceholder)
-                {
-                    return PlaceholderTransformation.Transform(sourceBitmap, path, source, isPlaceholder, key);
-                }
+			public string Key
+			{
+				get
+				{
+					return "CustomTransformationSelector";
+				}
+			}
 
-                return ImageTransformation.Transform(sourceBitmap, path, source, isPlaceholder, key);
-            }
-        }
-    }
+			public IBitmap Transform(IBitmap sourceBitmap, string path, ImageSource source, bool isPlaceholder, string key)
+			{
+				if (isPlaceholder)
+				{
+					return PlaceholderTransformation.Transform(sourceBitmap, path, source, isPlaceholder, key);
+				}
+
+				return ImageTransformation.Transform(sourceBitmap, path, source, isPlaceholder, key);
+			}
+		}
+	}
 }

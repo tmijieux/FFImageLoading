@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FFImageLoading.Forms.Args
+﻿namespace FFImageLoading.Forms.Args
 {
 	public class GetImageAsPngArgs
 	{

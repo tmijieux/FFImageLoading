@@ -1,13 +1,12 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 namespace FFImageLoading.Helpers
 {
-    [Preserve(AllMembers = true)]
-    public interface IMD5Helper
-    {
-        string MD5(string input);
+	[Preserve(AllMembers = true)]
+	public interface IMD5Helper
+	{
+		string MD5(string input);
 
-        string MD5(Stream stream);
-    }
+		string MD5(Stream stream);
+	}
 }
