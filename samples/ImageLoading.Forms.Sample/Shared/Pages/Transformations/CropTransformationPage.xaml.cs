@@ -1,29 +1,29 @@
 ﻿using Xamarin.Forms;
-using Xamvvm;
 
 namespace FFImageLoading.Forms.Sample
 {
-	public partial class CropTransformationPage : ContentPage, IBasePage<CropTransformationPageModel>
-	{
-		public CropTransformationPage()
-		{
-			InitializeComponent();
-		}
+    public partial class CropTransformationPage : BasePage<CropTransformationPageModel>
+    {
+        public CropTransformationPage()
+        {
+            InitializeComponent();
+        }
 
-		public void ReloadImage()
-		{
-			image.ReloadImage();
-			image.LoadingPlaceholder = null;
-		}
+        public void ReloadImage()
+        {
+            image.ReloadImage();
+            image.LoadingPlaceholder = null;
+        }
 
-		void OnPanUpdated(object sender, PanUpdatedEventArgs args)
-		{
-			this.GetPageModel().OnPanUpdated(args);
-		}
+        void OnPanUpdated(object sender, PanUpdatedEventArgs args)
+        {
+            (BindingContext as CropTransformationPageModel)?.OnPanUpdated(args);
+        }
 
-		void OnPinchUpdated(object sender, PinchGestureUpdatedEventArgs args)
-		{
-			this.GetPageModel().OnPinchUpdated(args);
-		}
-	}
+        void OnPinchUpdated(object sender, PinchGestureUpdatedEventArgs args)
+        {
+            //this.GetPageModel().OnPinchUpdated(args);
+            (BindingContext as CropTransformationPageModel)?.OnPinchUpdated(args);
+        }
+    }
 }

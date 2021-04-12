@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="FFImageLoading.Forms.Sample.SimpleGifPage"
-        xmlns:xamvvm="clr-namespace:Xamvvm;assembly=Xamvvm.Forms"
+<vm:BasePage xmlns:vm="clr-namespace:FFImageLoading.Forms.Sample"
+             x:TypeArguments="vm:SimpleGifPageModel" 
+             xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FFImageLoading.Forms.Sample.SimpleGifPage"
         xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-        xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
         Title="Simple Gif">
     <ContentPage.Content>
         <ContentView HorizontalOptions="Center" VerticalOptions="Center">
@@ -14,4 +16,4 @@
             </ffimageloading:CachedImage>
         </ContentView>
     </ContentPage.Content>
-</ContentPage>
+</vm:BasePage>

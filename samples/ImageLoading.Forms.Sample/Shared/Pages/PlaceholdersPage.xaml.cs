@@ -1,14 +1,13 @@
 ﻿
 using Xamarin.Forms;
-using Xamvvm;
 
 namespace FFImageLoading.Forms.Sample
 {
-	public partial class PlaceholdersPage : ContentPage, IBasePage<PlaceholdersPageModel>
-	{
-		public PlaceholdersPage()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class PlaceholdersPage : BasePage<PlaceholdersPageModel>
+    {
+        public PlaceholdersPage()
+        {
+            InitializeComponent();
+        }
+    }
 }

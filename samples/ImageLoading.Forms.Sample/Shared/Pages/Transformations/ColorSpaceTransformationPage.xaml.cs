@@ -1,13 +1,12 @@
 ﻿using Xamarin.Forms;
-using Xamvvm;
 
 namespace FFImageLoading.Forms.Sample
 {
-	public partial class ColorSpaceTransformationPage : ContentPage, IBasePage<ColorSpaceTransformationPageModel>
-	{
-		public ColorSpaceTransformationPage()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class ColorSpaceTransformationPage : BasePage<ColorSpaceTransformationPageModel>
+    {
+        public ColorSpaceTransformationPage()
+        {
+            InitializeComponent();
+        }
+    }
 }

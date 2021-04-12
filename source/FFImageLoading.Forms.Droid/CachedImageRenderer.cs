@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using FFImageLoading.Forms.Args;

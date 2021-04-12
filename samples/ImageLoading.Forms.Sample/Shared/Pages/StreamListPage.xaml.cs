@@ -1,14 +1,13 @@
 ﻿
 using Xamarin.Forms;
-using Xamvvm;
 
 namespace FFImageLoading.Forms.Sample
 {
-	public partial class StreamListPage : ContentPage, IBasePage<StreamListPageModel>
-	{
-		public StreamListPage()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class StreamListPage : BasePage<StreamListPageModel>
+    {
+        public StreamListPage()
+        {
+            InitializeComponent();
+        }
+    }
 }

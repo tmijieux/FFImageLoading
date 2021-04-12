@@ -1,14 +1,12 @@
-﻿
-using Xamarin.Forms;
-using Xamvvm;
+﻿using Xamarin.Forms;
 
 namespace FFImageLoading.Forms.Sample
 {
-	public partial class BasicPage : ContentPage, IBasePage<BasicPageModel>
-	{
-		public BasicPage()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class BasicPage : BasePage<BasicPageModel>
+    {
+        public BasicPage()
+        {
+            InitializeComponent();
+        }
+    }
 }

@@ -10,7 +10,6 @@ indent_style = space
 
 # Code files
 [*.{cs,csx,vb,vbx}]
-indent_style = tab
 indent_size = 4
 insert_final_newline = true
 charset = utf-8-bom
@@ -22,6 +21,10 @@ indent_size = 2
 
 # Xml config files
 [*.{props,targets,ruleset,config,nuspec,resx,vsixmanifest,vsct}]
+indent_size = 2
+
+# xaml
+[*.xaml]
 indent_size = 2
 
 # JSON files

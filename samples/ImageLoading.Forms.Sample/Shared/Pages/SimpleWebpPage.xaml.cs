@@ -1,13 +1,12 @@
 ﻿using Xamarin.Forms;
-using Xamvvm;
 
 namespace FFImageLoading.Forms.Sample
 {
-	public partial class SimpleWebpPage : ContentPage, IBasePage<SimpleWebpPageModel>
-	{
-		public SimpleWebpPage()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class SimpleWebpPage : BasePage<SimpleWebpPageModel>
+    {
+        public SimpleWebpPage()
+        {
+            InitializeComponent();
+        }
+    }
 }

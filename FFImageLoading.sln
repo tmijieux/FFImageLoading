@@ -145,7 +145,6 @@ Global
 		source\FFImageLoading.Shared.IosMac\FFImageLoading.Shared.IosMac.projitems*{26f4db3b-ec7f-46de-8d51-2cb4ba187a16}*SharedItemsImports = 13
 		source\FFImageLoading.Cross\FFImageLoading.Cross.projitems*{3c58b37d-edb7-4778-aa48-f3ad9a571059}*SharedItemsImports = 13
 		source\FFImageLoading.Svg.Forms.Shared\FFImageLoading.Svg.Forms.Shared.projitems*{3f817bad-edfb-44e3-a9ef-1fded55ed787}*SharedItemsImports = 13
-		source\FFImageLoading.Svg.Forms.Shared\FFImageLoading.Svg.Forms.Shared.projitems*{411b82f4-4f6b-49a0-8e28-260fb65b386f}*SharedItemsImports = 4
 		source\FFImageLoading.Svg.Shared\FFImageLoading.Svg.Shared.projitems*{488664fa-5bc5-4868-9fc4-44db7294ec5a}*SharedItemsImports = 13
 		source\FFImageLoading.Svg.Shared\FFImageLoading.Svg.Shared.projitems*{5140739d-209c-41a7-9503-5d5733f4c091}*SharedItemsImports = 4
 		source\FFImageLoading.Cross.Svg\FFImageLoading.Cross.Svg.projitems*{60678181-1544-4276-9b2a-6239c1046ea5}*SharedItemsImports = 13

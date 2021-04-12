@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:xamvvm="clr-namespace:Xamvvm;assembly=Xamvvm.Forms" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" x:Class="FFImageLoading.Forms.Sample.Pages.DataUrlPage">
+<vm:BasePage xmlns:vm="clr-namespace:FFImageLoading.Forms.Sample" 
+             x:TypeArguments="vm:DataUrlPageModel" 
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="FFImageLoading.Forms.Sample.Pages.DataUrlPage">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -12,4 +18,4 @@
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
-</ContentPage>
+</vm:BasePage>

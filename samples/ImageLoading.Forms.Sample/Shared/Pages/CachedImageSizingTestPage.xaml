@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:xamvvm="clr-namespace:Xamvvm;assembly=Xamvvm.Forms" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations" x:Class="FFImageLoading.Forms.Sample.CachedImageSizingTestPage">
+<vm:BasePage xmlns:vm="clr-namespace:FFImageLoading.Forms.Sample"
+  x:TypeArguments="vm:CachedImageSizingTestPageModel"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+  x:Class="FFImageLoading.Forms.Sample.CachedImageSizingTestPage">
     <ScrollView>
         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="16,32,16,16">
             <StackLayout Orientation="Horizontal">
@@ -55,4 +60,4 @@
             </Grid>
         </StackLayout>
     </ScrollView>
-</ContentPage>
+</vm:BasePage>

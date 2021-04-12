@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="FFImageLoading.Forms.Sample.MenuPage"
-        xmlns:xamvvm="clr-namespace:Xamvvm;assembly=Xamvvm.Forms"
-        xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-        xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-        Title="FFImageLoading">
-    <ContentPage.Content>
-
-        <ListView HasUnevenRows="true" GroupDisplayBinding="{Binding Key}" IsGroupingEnabled="true"
-                SelectedItem="{Binding SelectedItem, Mode=TwoWay}" ItemsSource="{Binding Items}">
-
-            <ListView.Behaviors>
-                <xamvvm:BaseEventToCommandBehavior EventName="ItemSelected" Command="{Binding ItemSelectedCommand}"/>
-            </ListView.Behaviors>
+<vm:BasePage 
+  xmlns:vm="clr-namespace:FFImageLoading.Forms.Sample" 
+  x:TypeArguments="vm:MenuPageModel"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  x:Class="FFImageLoading.Forms.Sample.MenuPage"
+  Title="FFImageLoading">
+  <ListView
+    HasUnevenRows="true" GroupDisplayBinding="{Binding Key}" IsGroupingEnabled="true"
+    SelectedItem="{Binding SelectedItem, Mode=TwoWay}" ItemsSource="{Binding Items}">
+      <ListView.Behaviors>
+        <!--<xamvvm:BaseEventToCommandBehavior EventName="ItemSelected" Command="{Binding ItemSelectedCommand}"/>-->
+      </ListView.Behaviors>
 
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -21,6 +21,4 @@
             </ListView.ItemTemplate>
 
         </ListView>
-
-    </ContentPage.Content>
-</ContentPage>
+</vm:BasePage>

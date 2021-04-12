@@ -318,9 +318,9 @@ namespace FFImageLoading.Helpers.Gif
 				int j = 0;
 				while (i < nColors)
 				{
-					int r = ((int)c[j++]) & MASK_INT_LOWEST_BYTE;
-					int g = ((int)c[j++]) & MASK_INT_LOWEST_BYTE;
-					int b = ((int)c[j++]) & MASK_INT_LOWEST_BYTE;
+                    uint r = c[j++];
+                    uint g = c[j++];
+                    uint b = c[j++];
 					tab[i++] = (int)(0xFF000000 | (r << 16) | (g << 8) | b);
 				}
 			}

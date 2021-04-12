@@ -1,13 +1,12 @@
 ﻿using Xamarin.Forms;
-using Xamvvm;
 
 namespace FFImageLoading.Forms.Sample
 {
-	public partial class FlipTransformationPage : ContentPage, IBasePage<FlipTransformationPageModel>
-	{
-		public FlipTransformationPage()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class FlipTransformationPage : BasePage<FlipTransformationPageModel>
+    {
+        public FlipTransformationPage()
+        {
+            InitializeComponent();
+        }
+    }
 }

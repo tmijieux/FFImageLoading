@@ -1,14 +1,13 @@
 ﻿
 using Xamarin.Forms;
-using Xamvvm;
 
 namespace FFImageLoading.Forms.Sample
 {
-	public partial class CustomKeyPage : ContentPage, IBasePage<CustomKeyPageModel>
-	{
-		public CustomKeyPage()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class CustomKeyPage : BasePage<CustomKeyPageModel>
+    {
+        public CustomKeyPage()
+        {
+            InitializeComponent();
+        }
+    }
 }

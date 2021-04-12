@@ -1,13 +1,12 @@
 ﻿using Xamarin.Forms;
-using Xamvvm;
 
 namespace FFImageLoading.Forms.Sample
 {
-	public partial class ByteArrayListPage : ContentPage, IBasePage<ByteArrayListPageModel>
-	{
-		public ByteArrayListPage()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class ByteArrayListPage : BasePage<ByteArrayListPageModel>
+    {
+        public ByteArrayListPage()
+        {
+            InitializeComponent();
+        }
+    }
 }

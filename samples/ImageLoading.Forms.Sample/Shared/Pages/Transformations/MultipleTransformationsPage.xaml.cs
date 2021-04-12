@@ -1,13 +1,12 @@
 ﻿using Xamarin.Forms;
-using Xamvvm;
 
 namespace FFImageLoading.Forms.Sample
 {
-	public partial class MultipleTransformationsPage : ContentPage, IBasePage<MultipleTransformationsPageModel>
-	{
-		public MultipleTransformationsPage()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class MultipleTransformationsPage : BasePage<MultipleTransformationsPageModel>
+    {
+        public MultipleTransformationsPage()
+        {
+            InitializeComponent();
+        }
+    }
 }

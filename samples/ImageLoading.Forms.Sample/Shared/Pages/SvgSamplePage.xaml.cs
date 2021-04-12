@@ -1,14 +1,13 @@
 ﻿
 using Xamarin.Forms;
-using Xamvvm;
 
 namespace FFImageLoading.Forms.Sample
 {
-	public partial class SvgSamplePage : ContentPage, IBasePage<SvgSamplePageModel>
-	{
-		public SvgSamplePage()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class SvgSamplePage : BasePage<SvgSamplePageModel>
+    {
+        public SvgSamplePage()
+        {
+            InitializeComponent();
+        }
+    }
 }
