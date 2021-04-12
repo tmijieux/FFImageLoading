@@ -1,7 +1,7 @@
-using Android.OS;
-using Android.Support.V4.App;
+﻿using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AndroidX.Fragment.App;
 using FFImageLoading;
 using FFImageLoading.Transformations;
 using FFImageLoading.Work;

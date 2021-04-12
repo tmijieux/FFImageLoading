@@ -11,5 +11,7 @@ namespace FFImageLoading.Forms.Sample
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public virtual void Reload() {}
     }
 }

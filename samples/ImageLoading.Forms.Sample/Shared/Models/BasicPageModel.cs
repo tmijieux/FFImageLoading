@@ -4,7 +4,7 @@
     {
         public BasicPageModel() { Reload(); }
 
-        public void Reload()
+        public override void Reload()
         {
             // ImageUrl = Helpers.GetRandomImageUrl();
             ImageUrl = @"https://raw.githubusercontent.com/recurser/exif-orientation-examples/master/Landscape_3.jpg";

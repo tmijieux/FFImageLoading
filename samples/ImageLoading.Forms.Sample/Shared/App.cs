@@ -11,11 +11,11 @@ namespace FFImageLoading.Forms.Sample
                     { "CustomCacheKeyFactory", new CustomCacheKeyFactory() }
                 };
 
-            CachedImage.FixedOnMeasureBehavior = true;
-            CachedImage.FixedAndroidMotionEventHandler = true;
+            //CachedImage.FixedOnMeasureBehavior = true;
+            //CachedImage.FixedAndroidMotionEventHandler = true;
 
             //ImageService.Instance.LoadCompiledResource("loading.png").Preload();
-            //ImageService.Instance.LoadUrl("http://loremflickr.com/600/600/nature?filename=simple.jpg").DownloadOnly();
+            //ImageService.Instance.LoadUrl("https://loremflickr.com/cache/resized/65535_50969551187_3a5354d0b8_b_600_600_nofilter.jpg").DownloadOnly();
             MainPage = new NavigationPage(new MenuPage());
         }
 

@@ -3,7 +3,12 @@
 
     public class SimpleGifPageModel : BasePageModel
     {
-        public void Reload()
+        public SimpleGifPageModel()
+        {
+            Reload();
+        }
+
+        public override void Reload()
         {
             ImageUrl = "resource://tenor.gif";
         }

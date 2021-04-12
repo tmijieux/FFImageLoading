@@ -12,13 +12,14 @@ namespace FFImageLoading.Forms.Sample
             {
                 Reload();
             });
+            Reload();
         }
 
         public string ImageUrl { get; set; }
 
         public ICommand LoadAnotherCommand { get; set; }
 
-        public void Reload()
+        public override void Reload()
         {
             ImageUrl = Helpers.GetRandomImageUrl();
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Threading;
@@ -25,7 +26,8 @@ namespace FFImageLoading.Forms.Sample
 
         public ObservableCollection<ListItem> Items { get; set; }
 
-        public async void Reload()
+
+        private async Task _DoReload()
         {
             var list = new List<ListItem>();
 
@@ -114,6 +116,16 @@ namespace FFImageLoading.Forms.Sample
             }
 
             Items = new ObservableCollection<ListItem>(list);
+        }
+        public override async void Reload()
+        {
+           try
+            {
+                await _DoReload();
+            }
+            catch (Exception)
+            {
+            }
         }
 
         public class CustomStreamImageSource : StreamImageSource

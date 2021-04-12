@@ -2,10 +2,13 @@
 using Android.Content;
 using Android.Content.Res;
 using Android.OS;
-using Android.Support.V4.App;
-using Android.Support.V4.View;
-using Android.Support.V7.App;
+//using Android.Support.V4.App;
+//using Android.Support.V4.View;
+//using Android.Support.V7.App;
 using Android.Views;
+using AndroidX.AppCompat.App;
+using AndroidX.Fragment.App;
+using AndroidX.ViewPager.Widget;
 
 namespace ImageLoading.Sample
 {
@@ -69,7 +72,7 @@ namespace ImageLoading.Sample
 	{
 		private List<string> images;
 
-		public SwipeGalleryStateAdapter(Android.Support.V4.App.FragmentManager fm, List<string> images) : base(fm)
+		public SwipeGalleryStateAdapter(FragmentManager fm, List<string> images) : base(fm)
 		{
 			this.images = images;
 		}

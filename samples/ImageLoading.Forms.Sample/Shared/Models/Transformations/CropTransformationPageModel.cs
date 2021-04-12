@@ -13,12 +13,16 @@ namespace FFImageLoading.Forms.Sample
         double mY = 0f;
         double mRatioPan = -0.0015f;
         double mRatioZoom = 0.8f;
+        public CropTransformationPageModel()
+        {
+            Reload();
+        }
 
         public List<ITransformation> Transformations { get; set; }
 
         public string ImageUrl { get; set; } = "http://loremflickr.com/600/600/nature?filename=crop_transformation.jpg";
 
-        public void Reload()
+        public override void Reload()
         {
             CurrentZoomFactor = 1d;
             CurrentXOffset = 0d;

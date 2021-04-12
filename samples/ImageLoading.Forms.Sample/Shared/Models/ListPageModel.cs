@@ -23,7 +23,7 @@ namespace FFImageLoading.Forms.Sample
 
         public ObservableCollection<ListItem> Items { get; set; }
 
-        public void Reload()
+        public override void Reload()
         {
             var list = new List<ListItem>();
 

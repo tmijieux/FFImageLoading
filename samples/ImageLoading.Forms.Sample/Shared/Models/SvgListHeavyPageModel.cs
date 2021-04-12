@@ -21,7 +21,7 @@ namespace FFImageLoading.Forms.Sample.Pages
 
         public ObservableCollection<ListHeavyItem> Items { get; set; }
 
-        public void Reload()
+        public override void Reload()
         {
             var list = new List<ListHeavyItem>();
 

@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Android.App;
 using Android.Content;
-using Android.Support.V4.App;
-using Android.Support.V4.Util;
-using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using AndroidX.Core.App;
+using AndroidX.Core.Util;
+using AndroidX.RecyclerView.Widget;
 using FFImageLoading;
 
 namespace ImageLoading.Sample

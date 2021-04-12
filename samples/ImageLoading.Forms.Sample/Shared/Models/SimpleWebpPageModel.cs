@@ -2,7 +2,12 @@
 {
     public class SimpleWebpPageModel : BasePageModel
     {
-        public void Reload()
+        public SimpleWebpPageModel()
+        {
+            Reload();
+        }
+
+        public override void Reload()
         {
             ImageUrl = "https://www.gstatic.com/webp/gallery/1.sm.webp";
         }
