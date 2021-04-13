@@ -5,7 +5,7 @@
     <DefineConstants>$(DefineConstants);__TIZEN__</DefineConstants>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GenerateDependencyFile>False</GenerateDependencyFile>
-    <NoWarn>1591</NoWarn>        
+    <NoWarn>1591</NoWarn>
     <RootNamespace>FFImageLoading.Forms.Platform</RootNamespace>
     <AssemblyName>FFImageLoading.Forms.Platform</AssemblyName>
     <PackageId>FFImageLoading.Forms.Platform.Tizen</PackageId>
@@ -17,7 +17,7 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
-    <Copyright>Daniel Luberda</Copyright>          
+    <Copyright>Daniel Luberda</Copyright>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -37,7 +37,7 @@
   <ItemGroup>
     <PackageReference Include="Tizen.NET" Version="5.0.0.14629" />
     <PackageReference Include="Xamarin.Forms.Platform.Tizen" Version="2.5.1.444934" />
-    <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
   </ItemGroup>
 
   <ItemGroup>
