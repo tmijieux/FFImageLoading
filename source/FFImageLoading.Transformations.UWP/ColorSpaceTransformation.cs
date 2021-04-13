@@ -1,4 +1,8 @@
-﻿namespace FFImageLoading.Transformations
+﻿using System;
+using System.Linq;
+using FFImageLoading.Work;
+
+namespace FFImageLoading.Transformations
 {
     public class ColorSpaceTransformation : TransformationBase
     {

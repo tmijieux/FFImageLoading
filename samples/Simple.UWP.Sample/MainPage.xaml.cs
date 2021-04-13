@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using FFImageLoading.Transformations;
+using FFImageLoading.Extensions;
+
 using FFImageLoading.Work;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -7,35 +10,35 @@ using Windows.UI.Xaml.Controls;
 
 namespace Simple.Universal.Sample
 {
-	/// <summary>
-	/// An empty page that can be used on its own or navigated to within a Frame.
-	/// </summary>
-	public sealed partial class MainPage : Page
-	{
-		public MainPage()
-		{
-			this.InitializeComponent();
-		}
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class MainPage : Page
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+        }
 
-		List<ITransformation> transformationsBin1 = new List<ITransformation>()
-		{
-			new GrayscaleTransformation(),
-			new CircleTransformation(),
-		};
+        List<ITransformation> transformationsBin1 = new List<ITransformation>()
+        {
+            new GrayscaleTransformation(),
+            new CircleTransformation(),
+        };
 
-		List<ITransformation> transformationsBin2 = new List<ITransformation>()
-		{
-			new RotateTransformation(45),
-		};
+        List<ITransformation> transformationsBin2 = new List<ITransformation>()
+        {
+            new RotateTransformation(45),
+        };
 
-		private void Button1_Click(object sender, RoutedEventArgs e)
-		{
-			Image.Transformations = transformationsBin1;
-		}
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            //MyImage.Transformations = transformationsBin1;
+        }
 
-		private void Button2_Click(object sender, RoutedEventArgs e)
-		{
-			Image.Transformations = transformationsBin2;
-		}
-	}
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            //MyImage.Transformations = transformationsBin2;
+        }
+    }
 }

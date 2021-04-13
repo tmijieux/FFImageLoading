@@ -131,6 +131,14 @@
       <Project>{51ca3be2-df00-4f49-8054-e5c776992b61}</Project>
       <Name>FFImageLoading</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\source\FFImageLoading.Transformations.UWP\FFImageLoading.Transformations.UWP.csproj">
+      <Project>{399e7e28-5a3d-471f-b6fc-d5770ebb6762}</Project>
+      <Name>FFImageLoading.Transformations.UWP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\source\FFImageLoading.UWP\FFImageLoading.UWP.csproj">
+      <Project>{610543A5-D06F-4BCA-9443-E6ADDFF06C71}</Project>
+      <Name>FFImageLoading.UWP</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.11" />

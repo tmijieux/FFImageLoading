@@ -1,4 +1,7 @@
-﻿namespace FFImageLoading.Transformations
+﻿using FFImageLoading.Extensions;
+using FFImageLoading.Work;
+
+namespace FFImageLoading.Transformations
 {
     public class ColorFillTransformation : TransformationBase
     {

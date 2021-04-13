@@ -1,4 +1,8 @@
-﻿namespace FFImageLoading.Transformations
+﻿using System;
+using FFImageLoading.Extensions;
+using FFImageLoading.Work;
+
+namespace FFImageLoading.Transformations
 {
     public class TintTransformation : ColorSpaceTransformation
     {

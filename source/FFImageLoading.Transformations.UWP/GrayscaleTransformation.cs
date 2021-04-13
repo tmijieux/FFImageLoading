@@ -1,4 +1,6 @@
-﻿namespace FFImageLoading.Transformations
+﻿using FFImageLoading.Work;
+
+namespace FFImageLoading.Transformations
 {
     public class GrayscaleTransformation : TransformationBase
     {

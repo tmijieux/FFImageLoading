@@ -1,4 +1,7 @@
-﻿namespace FFImageLoading.Transformations
+﻿using System;
+using FFImageLoading.Work;
+
+namespace FFImageLoading.Transformations
 {
     public class RotateTransformation : TransformationBase
     {
